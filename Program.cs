@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using models.Estacionamento;
 using models.Pessoa;
+using models.Curso;
 
 /*
 Console.WriteLine("Hello, World!");
@@ -466,7 +467,7 @@ estacionamento.ExibirInformacoes();
 */
 
 
-
+/*
 // Solicita os dados ao usuário
 Console.WriteLine("Bem-vindo ao sistema de cadastro de pessoas!");
 Console.WriteLine("-----------------------------------");
@@ -486,7 +487,7 @@ string cpf = Console.ReadLine();
 Pessoa pessoa = new Pessoa(nome, sobrenome, idade, cpf);
 pessoa.ExibirInformacoes();
 pessoa.ValidarDados(); // Valida os dados informados
-
+*/
 
 
 
@@ -602,3 +603,16 @@ Os modificadores de acesso ajudam a proteger dados e a organizar o encapsulament
 
 */
 
+Pessoa pessoa = new Pessoa();
+pessoa.Nome = "João";
+pessoa.Sobrenome = "Silva";
+pessoa.Idade = 25;
+
+Curso cursoDeTi = new Curso();
+cursoDeTi.Nome = "Curso de C# Avançado";
+cursoDeTi.Alunos = new List<Pessoa>();
+
+cursoDeTi.AdicionarAluno(pessoa);
+cursoDeTi.ListarAlunos();
+cursoDeTi.ListarAlunosMatriculados();
+cursoDeTi.RemoverAluno(pessoa);

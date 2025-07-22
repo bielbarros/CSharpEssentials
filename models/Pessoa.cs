@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace models.Pessoa
 {
-
+     
     public class Pessoa
     {
         
@@ -82,7 +82,11 @@ namespace models.Pessoa
             }
         }
 
-        public Pessoa(string nome,string sobrenome, int idade, string cpf)
+        public Pessoa() // Construtor vazio
+        {
+           
+        }
+        public Pessoa(string nome, string sobrenome, int idade, string cpf)
         {
             Nome = nome;
             Sobrenome = sobrenome;
