@@ -424,9 +424,87 @@ class Program
 ## Boas Práticas
 
 ### 1. **Nomenclatura**
-- ✅ Use PascalCase para nomes de classes: `Livro`, `Biblioteca`
-- ✅ Use PascalCase para propriedades: `Titulo`, `Autor`
+
+#### **Classes e Interfaces**
+- ✅ Use PascalCase para nomes de classes: `Livro`, `Biblioteca`, `Usuario`
+- ✅ Use PascalCase para interfaces: `IEnumerable`, `IDisposable`
+- ✅ Use substantivos ou substantivos + adjetivos: `Livro`, `BibliotecaDigital`
+
+#### **Propriedades e Campos**
+- ✅ Use PascalCase para propriedades públicas: `Titulo`, `Autor`, `DataEmprestimo`
+- ✅ Use camelCase para campos privados: `_email`, `_dataNascimento`
+- ✅ Use prefixo `_` para campos privados: `private string _nome;`
+- ✅ Use nomes descritivos: `EstaEmprestado` em vez de `Status`
+
+#### **Métodos**
 - ✅ Use PascalCase para métodos: `EmprestarLivro()`, `DevolverLivro()`
+- ✅ Use verbos para ações: `CalcularTotal()`, `ValidarDados()`
+- ✅ Use `Get`/`Set` para acessadores: `GetUsuario()`, `SetPreco()`
+- ✅ Use `Is`/`Has` para booleanos: `IsDisponivel()`, `HasPermissao()`
+
+#### **Variáveis e Parâmetros**
+- ✅ Use camelCase para variáveis locais: `nomeUsuario`, `dataEmprestimo`
+- ✅ Use camelCase para parâmetros: `public void Emprestar(string nomeUsuario)`
+- ✅ Use nomes descritivos: `totalLivros` em vez de `total`
+- ✅ Evite abreviações: `usuario` em vez de `usr`
+
+#### **Constantes e Enums**
+- ✅ Use PascalCase para constantes: `MaximoLivros`, `TaxaJuros`
+- ✅ Use PascalCase para enums: `StatusLivro`, `TipoUsuario`
+- ✅ Use PascalCase para valores de enum: `Disponivel`, `Emprestado`
+
+#### **Namespaces**
+- ✅ Use PascalCase para namespaces: `SistemaBiblioteca`, `Utilitarios`
+- ✅ Use estrutura hierárquica: `MinhaEmpresa.Projeto.Modulo`
+
+#### **Exemplos de Boas Práticas**
+```csharp
+// ✅ CORRETO
+public class GerenciadorLivros
+{
+    private string _nomeBiblioteca;
+    private List<Livro> _livros;
+    
+    public string NomeBiblioteca { get; set; }
+    public bool EstaAtivo { get; set; }
+    
+    public void AdicionarLivro(Livro novoLivro)
+    {
+        if (novoLivro != null)
+        {
+            _livros.Add(novoLivro);
+        }
+    }
+    
+    public bool VerificarDisponibilidade(string tituloLivro)
+    {
+        return _livros.Any(l => l.Titulo == tituloLivro && !l.EstaEmprestado);
+    }
+}
+
+// ❌ INCORRETO
+public class gerenciador_livros
+{
+    private string nome_biblioteca;
+    private List<Livro> livros;
+    
+    public string nome { get; set; }
+    public bool ativo { get; set; }
+    
+    public void add(Livro l)
+    {
+        if (l != null)
+        {
+            livros.Add(l);
+        }
+    }
+    
+    public bool check(string t)
+    {
+        return livros.Any(l => l.Titulo == t && !l.EstaEmprestado);
+    }
+}
+```
 
 ### 2. **Organização**
 - ✅ Separe cada classe em um arquivo diferente
