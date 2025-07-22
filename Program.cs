@@ -479,7 +479,5 @@ string cpf = Console.ReadLine();
 
 Pessoa pessoa = new Pessoa(nome, idade, cpf);
 
-pessoa.ValidarNome();
-pessoa.ValidarIdade();
-pessoa.ValidarCPF();
+pessoa.ValidarDados(); // Valida os dados informados
 pessoa.ExibirInformacoes();

@@ -2,15 +2,68 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Globalization;
 
 namespace models.Pessoa
 {
 
     public class Pessoa
     {
-        public string Nome { get; set; }
-        public int Idade { get; set; }
-        public string CPF { get; set; }
+
+        private string _nome;
+        private int _idade;
+        private string _cpf;
+
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Nome não pode ser vazio.");
+                }
+
+                _nome = value;
+            }
+        }
+
+        public int Idade
+        {
+            get { return _idade; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Idade não pode ser negativa.");
+                }
+                else if (value > 120)
+                {
+                    throw new ArgumentException("Idade inválida.");
+                }
+                else if (value < 18)
+                {
+                    Console.WriteLine("Aviso: Pessoa menor de idade.");
+                }
+
+                _idade = value;
+            }
+        }
+
+        public string CPF
+        {
+            get { return _cpf; }
+            set
+            {
+                if (string.IsNullOrEmpty(value) || value.Length != 11)
+                {
+                    throw new ArgumentException("CPF inválido.");
+                }
+
+                _cpf = value;
+            }
+        }
 
         public Pessoa(string nome, int idade, string cpf)
         {
@@ -20,49 +73,12 @@ namespace models.Pessoa
 
         }
 
-        public void InserirDados()
+        public void ValidarDados()
         {
-            
-        }
-
-
-        public void ValidarNome()
-        {
-            if (string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty(Nome) || Idade < 0 || string.IsNullOrEmpty(CPF) || CPF.Length != 11)
             {
-                Console.WriteLine("Nome inválido.");
-                return;
+                throw new InvalidOperationException("Dados inválidos.");
             }
-
-            Console.WriteLine("Nome válido.");
-        }
-
-
-
-
-        public void ValidarIdade()
-        {
-            if (Idade < 0)
-            {
-                Console.WriteLine("Idade inválida.");
-                return;
-            }
-
-            Console.WriteLine("Idade válida.");
-        }
-
-
-
-        public void ValidarCPF()
-        {
-            if (string.IsNullOrEmpty(CPF) || CPF.Length != 11)
-            {
-                Console.WriteLine("CPF inválido.");
-                return;
-            }
-
-            // Lógica de validação do CPF
-            Console.WriteLine("CPF válido.");
         }
 
         public void ExibirInformacoes()
