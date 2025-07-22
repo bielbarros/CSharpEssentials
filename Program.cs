@@ -468,6 +468,8 @@ estacionamento.ExibirInformacoes();
 
 
 // Solicita os dados ao usuário
+Console.WriteLine("Bem-vindo ao sistema de cadastro de pessoas!");
+Console.WriteLine("-----------------------------------");
 Console.WriteLine("Digite o nome:");
 string nome = Console.ReadLine();
 
@@ -481,3 +483,118 @@ Pessoa pessoa = new Pessoa(nome, idade, cpf);
 
 pessoa.ValidarDados(); // Valida os dados informados
 pessoa.ExibirInformacoes();
+
+
+
+
+/*
+
+Body expression (ou expressão de corpo) é uma sintaxe simplificada em C# para métodos, 
+propriedades e construtores que possuem apenas uma única expressão a ser retornada ou 
+executada. Utiliza o operador => (lambda) para tornar o código mais conciso e legível.
+
+Exemplo em propriedade:
+public string Nome => _nome;
+
+
+Exemplo em método:
+public int Soma(int a, int b) => a + b;
+
+Vantagens:
+
+Reduz a quantidade de código.
+Facilita a leitura em membros simples.
+Observação:
+Use body expressions apenas quando a implementação for simples e direta. 
+Para lógicas mais complexas, prefira o bloco tradicional
+
+*/
+
+
+
+
+/*
+
+Modificadores de acesso definem a visibilidade de classes, métodos, propriedades e 
+outros membros em relação a outras partes do código. 
+Eles controlam quem pode acessar ou modificar determinado membro.
+
+Principais modificadores:
+
+public: Acesso liberado para qualquer código.
+private: Acesso restrito apenas à própria classe.
+protected: Acesso permitido à própria classe e a classes derivadas.
+internal: Acesso permitido apenas dentro do mesmo assembly/projeto.
+protected internal: Acesso permitido dentro do mesmo assembly ou por classes derivadas.
+private protected: Acesso permitido apenas dentro da própria classe ou classes derivadas no mesmo assembly.
+
+
+
+// public: acessível de qualquer lugar
+public class PessoaPublica
+{
+    public string Nome { get; set; }
+}
+
+--------
+
+// private: acessível apenas dentro da própria classe
+class PessoaPrivada
+{
+    private int idade;
+
+    private void MostrarIdade()
+    {
+        Console.WriteLine(idade);
+    }
+}
+
+-------
+
+// protected: acessível na classe e em classes derivadas
+class PessoaBase
+{
+    protected string documento;
+}
+
+class PessoaDerivada : PessoaBase
+{
+    public void MostrarDocumento()
+    {
+        Console.WriteLine(documento); // permitido
+    }
+}
+
+------
+
+// internal: acessível apenas dentro do mesmo assembly/projeto
+internal class PessoaInterna
+{
+    internal void MostrarMensagem()
+    {
+        Console.WriteLine("Mensagem interna");
+    }
+}
+
+-------
+
+// protected internal: acessível no mesmo assembly ou em classes derivadas
+class PessoaProtegidaInterna
+{
+    protected internal int codigo;
+}
+
+-------
+
+// private protected: acessível na própria classe ou em derivadas no mesmo assembly
+class PessoaPrivadaProtegida
+{
+    private protected int
+
+
+Resumo:
+Os modificadores de acesso ajudam a proteger dados e a organizar o encapsulamento no código, tornando-o mais seguro e estruturado.
+
+
+*/
+
