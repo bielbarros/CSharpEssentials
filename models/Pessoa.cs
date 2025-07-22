@@ -53,7 +53,7 @@ namespace models.Pessoa
 
         public string CPF
         {
-            get { return _cpf; }
+            get => _cpf; // Usando body expression para simplificar o getter
             set
             {
                 if (string.IsNullOrEmpty(value) || value.Length != 11)
