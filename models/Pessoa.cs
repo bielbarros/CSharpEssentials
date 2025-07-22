@@ -10,8 +10,9 @@ namespace models.Pessoa
 
     public class Pessoa
     {
-
+        
         private string _nome;
+        private string _sobrenome;
         private int _idade;
         private string _cpf;
 
@@ -28,6 +29,22 @@ namespace models.Pessoa
                 _nome = value;
             }
         }
+
+        public string Sobrenome
+        {
+            get { return _sobrenome; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Sobrenome não pode ser vazio.");
+                }
+
+                _sobrenome = value;
+            }
+        }
+
+        public string NomeCompleto => $"{Nome} {Sobrenome}";
 
         public int Idade
         {
@@ -65,9 +82,10 @@ namespace models.Pessoa
             }
         }
 
-        public Pessoa(string nome, int idade, string cpf)
+        public Pessoa(string nome,string sobrenome, int idade, string cpf)
         {
             Nome = nome;
+            Sobrenome = sobrenome;
             Idade = idade;
             CPF = cpf;
 
@@ -79,14 +97,27 @@ namespace models.Pessoa
             {
                 throw new InvalidOperationException("Dados inválidos.");
             }
+
+            Console.WriteLine("Confirme com um SIM ou NÃO se os dados estão corretos:");
+            string resposta = Console.ReadLine().ToUpperInvariant();
+
+            if (resposta == "SIM")
+            {
+                Console.WriteLine("Dados confirmados.");
+                Console.WriteLine("Dados cadastrados com sucesso.");
+            }
+            else
+            {
+                Console.WriteLine("Dados não confirmados.");
+            }
         }
 
         public void ExibirInformacoes()
         {
-            Console.WriteLine($"Nome: {Nome}");
+            Console.WriteLine($"Nome Completo: {NomeCompleto}");
             Console.WriteLine($"Idade: {Idade}");
             Console.WriteLine($"CPF: {CPF}");
-            Console.WriteLine("Dados cadastrados com sucesso.");
+           Console.WriteLine("------------------------------");
         }
 
 

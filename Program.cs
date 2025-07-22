@@ -470,8 +470,11 @@ estacionamento.ExibirInformacoes();
 // Solicita os dados ao usuário
 Console.WriteLine("Bem-vindo ao sistema de cadastro de pessoas!");
 Console.WriteLine("-----------------------------------");
-Console.WriteLine("Digite o nome:");
+Console.WriteLine("Digite o primeiro nome:");
 string nome = Console.ReadLine();
+
+Console.WriteLine("Digite o sobrenome:");
+string sobrenome = Console.ReadLine();
 
 Console.WriteLine("Digite a idade:");
 int idade = int.Parse(Console.ReadLine());
@@ -479,10 +482,11 @@ int idade = int.Parse(Console.ReadLine());
 Console.WriteLine("Digite o CPF:");
 string cpf = Console.ReadLine();
 
-Pessoa pessoa = new Pessoa(nome, idade, cpf);
-
-pessoa.ValidarDados(); // Valida os dados informados
+// Ajuste a ordem dos argumentos conforme o construtor da classe Pessoa
+Pessoa pessoa = new Pessoa(nome, sobrenome, idade, cpf);
 pessoa.ExibirInformacoes();
+pessoa.ValidarDados(); // Valida os dados informados
+
 
 
 
