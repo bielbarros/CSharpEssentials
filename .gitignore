@@ -1,0 +1,30 @@
+# Ignora pastas de build e arquivos gerados automaticamente
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Ignora arquivos temporários do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignora arquivos de configuração do Visual Studio Code
+.vscode/
+
+# Ignora arquivos de pacotes NuGet baixados
+packages/
+*.nupkg
+
+# Ignora arquivos de configuração de build
+project.lock.json
+project.fragment.lock.json
+
+# Ignora arquivos de configuração do Rider/JetBrains
+.idea/
