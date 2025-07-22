@@ -608,11 +608,23 @@ pessoa.Nome = "João";
 pessoa.Sobrenome = "Silva";
 pessoa.Idade = 25;
 
+Pessoa pessoa2 = new Pessoa("Maria", "Oliveira", 30, "98765432100"); // Segunda forma de instanciar a classe Pessoa
+
+Pessoa pessoa3 = new Pessoa(nome: "Pedro", sobrenome: "Santos", idade: 22, cpf: "12345678900"); // Terceira forma de instanciar a classe Pessoa, usando nomeação de parâmetros
+
 Curso cursoDeTi = new Curso();
 cursoDeTi.Nome = "Curso de C# Avançado";
+
 cursoDeTi.Alunos = new List<Pessoa>();
 
 cursoDeTi.AdicionarAluno(pessoa);
+cursoDeTi.AdicionarAluno(pessoa2);
+cursoDeTi.AdicionarAluno(pessoa3);
+
 cursoDeTi.ListarAlunos();
+
 cursoDeTi.ListarAlunosMatriculados();
+
 cursoDeTi.RemoverAluno(pessoa);
+cursoDeTi.RemoverAluno(pessoa2);
+cursoDeTi.RemoverAluno(pessoa3);
