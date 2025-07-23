@@ -688,3 +688,106 @@ decimal valorMonetario = 19.99m;
 Console.WriteLine($"{valorMonetario:C}"); // Imprime "R$ 19,99"
 
 */
+
+
+/*
+Convertendo valores monetários:
+
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+decimal valorMonetario = 19.99m;
+Console.WriteLine($"{valorMonetario:C}"); // Imprime "R$ 19,99"
+
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+Console.WriteLine($"{valorMonetario:C}"); // Imprime "$19.99"
+
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
+Console.WriteLine($"{valorMonetario:C}"); // Imprime "19,99 €
+*/
+
+/*
+Alterando a localização da cultura:
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+
+var valorMonetario = 19.99m;
+Console.WriteLine($"{valorMonetario.ToString("C", CultureInfo.CurrentSpecificCulture("en-US"))}"); // Imprime "$19.99" (formato monetário americano)
+*/
+
+
+
+/*
+Personalizando a exibição monetária:
+CultureInfo cultura = new CultureInfo("pt-BR");
+
+Console.WriteLine($"{valorMonetario.ToString("C1", cultura)}"); // Exibe o valor monetário com uma casa decimal
+Console.WriteLine($"{valorMonetario.ToString("C2", cultura)}"); // Exibe o valor monetário com duas casas decimais
+Console.WriteLine($"{valorMonetario.ToString("C3", cultura)}"); // Exibe o valor monetário com três casas decimais
+*/
+
+
+
+/*
+Representando porcentagens:
+double porcentagem = 0.25; // 25%
+Console.WriteLine($"{porcentagem:P}"); // Imprime "25,00 %"
+
+double porcentagem = .3421; // 34.21%
+Console.WriteLine($"{porcentagem:P2}"); // Imprime "34,21 %"
+
+int numero = 123456;
+Console.WriteLine(numero.ToString("##-##-##")); // Imprime "123-45-67"
+Console.WriteLine(numero.ToString("000-000-000")); // Imprime "123-456-000"
+*/
+
+
+/*
+Formatação de data e hora:
+DateTime data = DateTime.Now;
+Console.WriteLine(data); // Imprime a data e hora atual
+
+Console.WriteLine(data.ToString("dd/MM/yyyy HH:mm")); // Imprime a data no formato "dia/mês/ano hora:minuto"
+
+
+Console.WriteLine(data.ToString("dd/MM/yyyy hh:mm")); // Imprime a data no formato "dia/mês/ano hora:minuto" (12 horas)
+
+Console.WriteLine(data.ToString("dd/MM/yyyy HH:mm:ss")); // Imprime a data no formato "dia/mês/ano hora:minuto:segundo"
+
+
+DateTime data = DateTime.Parse("17/04/2025 14:00"); // Converte uma string para DateTime
+Console.WriteLine(data); // Imprime a data convertida 
+
+DateTime data = DateTime.Parse("32/04/2025 14:00"); // Converte uma string para DateTime
+Console.WriteLine(data); // Imprime a data convertida (lança uma exceção se a string não for válida)
+
+
+
+
+string dataString = "2022-13-17 14:00"; // Data inválida
+
+DateTime.TryParseExact(dataString, 
+                        "yyyy-MM-dd HH:mm", 
+                        CultureInfo.InvariantCulture, 
+                        DateTimeStyles.None, 
+                        out DateTime dataConvertida);
+
+Console.WriteLine(data); // Imprime a data convertida (se a conversão falhar, data será DateTime.MinValue)
+
+
+Outra forma:
+
+bool sucesso = DateTime.TryParseExact(dataString, 
+                        "yyyy-MM-dd HH:mm", 
+                        CultureInfo.InvariantCulture, 
+                        DateTimeStyles.None, 
+                        out DateTime dataConvertida);
+
+if (sucesso)
+{
+    Console.WriteLine($"Conversão realizada com sucesso! Data {dataConvertida}");
+}
+else
+{
+    Console.WriteLine($"{dataString} não é uma data válida.");
+}
+
+
+*/
