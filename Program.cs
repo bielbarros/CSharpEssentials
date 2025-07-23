@@ -603,6 +603,8 @@ Os modificadores de acesso ajudam a proteger dados e a organizar o encapsulament
 
 */
 
+
+/*
 Pessoa pessoa = new Pessoa();
 pessoa.Nome = "João";
 pessoa.Sobrenome = "Silva";
@@ -628,3 +630,61 @@ cursoDeTi.ListarAlunosMatriculados();
 cursoDeTi.RemoverAluno(pessoa);
 cursoDeTi.RemoverAluno(pessoa2);
 cursoDeTi.RemoverAluno(pessoa3);
+*/
+
+
+
+/*
+Concatenação de strings:
+string nome = "João";
+string sobrenome = "Silva";
+string nomeCompleto = nome + " " + sobrenome; // Usando o operador +
+Console.WriteLine(nomeCompleto); // Imprime "João Silva"
+
+
+Interpolação de strings:
+string nomeCompletoInterpolado = $"{nome} {sobrenome}"; // Usando interpolação
+Console.WriteLine(nomeCompletoInterpolado); // Imprime "João Silva"
+*/
+
+
+/*
+
+Concatenação de valores:
+string valor1 = "10";
+string valor2 = "20";
+string resultado = valor1 + valor2; // Concatena as strings
+Console.WriteLine(resultado); // Imprime "1020"
+
+
+int valor1 = 10;
+int valor2 = 20;
+int resultado = valor1 + valor2; // Soma os valores
+Console.WriteLine(resultado); // Imprime 30
+
+
+string valor1 = "10";
+int valor2 = 20;
+string resultado = valor1 + valor2; // Concatena a string com o inteiro
+Console.WriteLine(resultado); // Imprime "1020" (o inteiro é convertido para string
+
+
+string valor1 = "10";
+int valor2 = 20;
+int resultado = int.Parse(valor1) + valor2; // Converte a string para inteiro e soma
+Console.WriteLine(resultado); // Imprime 30
+
+*/
+
+
+/*
+Valores monetários:
+
+decimal valorMonetario = 19.99m; // Usando o sufixo 'm' para indicar que é um decimal
+Console.WriteLine(valorMonetario); // Imprime 19.99
+
+
+decimal valorMonetario = 19.99m;
+Console.WriteLine($"{valorMonetario:C}"); // Imprime "R$ 19,99"
+
+*/
