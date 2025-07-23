@@ -7,10 +7,8 @@ using System.Globalization;
 
 namespace models.Pessoa
 {
-     
     public class Pessoa
     {
-        
         private string _nome;
         private string _sobrenome;
         private int _idade;
@@ -86,6 +84,8 @@ namespace models.Pessoa
         {
            
         }
+
+
         public Pessoa(string nome, string sobrenome, int idade, string cpf)
         {
             Nome = nome;
@@ -94,6 +94,7 @@ namespace models.Pessoa
             CPF = cpf;
 
         }
+
 
         public void ValidarDados()
         {
@@ -116,15 +117,14 @@ namespace models.Pessoa
             }
         }
 
+
         public void ExibirInformacoes()
         {
             Console.WriteLine($"Nome Completo: {NomeCompleto}");
             Console.WriteLine($"Idade: {Idade}");
             Console.WriteLine($"CPF: {CPF}");
-           Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------");
         }
-
-
     }
 
 }

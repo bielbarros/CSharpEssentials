@@ -5,7 +5,6 @@ using System.Text;
 
 namespace models.Estacionamento
 {
-
     public class Estacionamento
     {
         public string placa { get; set; }
@@ -13,6 +12,7 @@ namespace models.Estacionamento
         public DateTime dataSaida { get; set; }
         public double valorHora { get; set; }
         public double valorTotal { get; set; }
+
 
         public Estacionamento(string placa, DateTime dataEntrada, DateTime dataSaida, double valorHora, double valorTotal)
         {
@@ -31,6 +31,7 @@ namespace models.Estacionamento
             this.valorTotal = valorTotal;
             Console.WriteLine($"O valor total do estacionamento é: {valorTotal}");
         }
+
 
         public void ExibirInformacoes()
         {

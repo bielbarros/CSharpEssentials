@@ -19,6 +19,7 @@ public class Curso
     {
         int quantidade = Alunos.Count;
         Console.WriteLine($"Quantidade de alunos matriculados: {quantidade}");
+        
         if (quantidade == 0)
         {
             Console.WriteLine("Nenhum aluno matriculado.");
@@ -45,6 +46,15 @@ public class Curso
     public void ListarAlunos()
     {
         Console.WriteLine("Lista de Alunos:");
+        for (int count = 0; count < Alunos.Count; count++)
+        {
+            // string texto = "N° " + count + " - Nome: " + Alunos[count].NomeCompleto; // Concatenando strings
+            string texto = $"N° {count +1 } - Nome: {Alunos[count].NomeCompleto}"; // Usando interpolação de strings
+            Console.WriteLine(texto);
+        }
+
+
+
         foreach (var aluno in Alunos)
         {
             Console.WriteLine($"Nome: {aluno.NomeCompleto}, Idade: {aluno.Idade}");
