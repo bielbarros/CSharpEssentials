@@ -427,12 +427,39 @@ numerosList.Add(1); // Adiciona o elemento 1 à lista
 numerosList.Add(2); // Adiciona o elemento 2 à lista    
 numerosList.Add(3); // Adiciona o elemento 3 à lista
 
+
 Console.WriteLine("Elementos da lista:");
 foreach (var numero in numerosList)
 {
     Console.WriteLine(numero);
 }
+
+
+Verificar se a lista está vazia:
+
+if (!minhaLista.Any()) // Verifica se a lista está vazia
+{
+    Console.WriteLine("A lista está vazia.");
+}
+else
+{
+    Console.WriteLine("A lista contém elementos.");
+}
+
+
+if (minhaLista.Count == 0) // Outra forma de verificar se a lista está vazia
+{
+    Console.WriteLine("A lista está vazia.");
+}
+else
+{
+    Console.WriteLine("A lista contém elementos.");
+}
+
+
 */
+
+
 
 /*
 Console.WriteLine("Seja bem vindo ao sistema de estacionamento!");
@@ -791,3 +818,4 @@ else
 
 
 */
+
