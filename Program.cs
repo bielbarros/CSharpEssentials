@@ -819,3 +819,13 @@ else
 
 */
 
+
+/*
+Leitura de arquivos .txt:
+
+string[] linhas = File.ReadAllLines("arquivos/leitura.txt"); // Lê todas as linhas do arquivo .txt
+foreach (string linha in linhas)
+{
+    Console.WriteLine(linha); // Imprime cada linha do arquivo
+}
+*/
