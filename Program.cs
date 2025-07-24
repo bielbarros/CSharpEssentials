@@ -27,11 +27,17 @@ decimal valorMonetario = 19.99m; // Tipo decimal para valores monetários
 DateTime dataHora = DateTime.Now; // Tipo data e hora
 
 Declarações de variáveis:
+
 int numero = 5; // Declaração de variável inteira
+
 string nome = "João"; // Declaração de variável de texto
+
 bool ativo = true; // Declaração de variável booleana
+
 double preco = 19.99f; // Declaração de variável de ponto flutuante usa-se a letra f
+
 char letra = 'A'; // Declaração de variável de caractere sempre com aspas simples
+
 decimal valor = 100.50m; // Declaração de variável decimal para valores monetários
 
 Usar literais de ponto flutuante
@@ -50,6 +56,72 @@ Float Type    Precision
 float         ~6-9 digits
 double        ~15-17 digits
 decimal        28-29 digits
+
+*/
+
+/*
+Tipos de dados compostos:
+List<int> numeros = new List<int>(); // Lista de inteiros
+
+Dictionary<string, int> dicionario = new Dictionary<string, int>(); // Dicionário com chave string e valor inteiro
+
+Tuple<string, int> tupla = new Tuple<string, int>("João", 25); // Tupla com dois elementos: string e inteiro
+
+Array<int> numerosArray = new int[5]; // Array de inteiros com tamanho fixo
+
+List<string> nomes = new List<string> { "Ana", "Maria", "Pedro" }; // Lista de strings com inicialização direta
+
+// Declaração de variáveis compostas
+
+List<string> frutas = new List<string>(); // Declaração de lista de strings
+frutas.Add("Maçã"); // Adiciona "Maçã" à lista
+frutas.Add("Banana"); // Adiciona "Banana" à lista
+
+Dictionary<string, int> idades = new Dictionary<string, int>(); // Declaração de dicionário com chave string e valor inteiro
+idades.Add("João", 25); // Adiciona a chave "João" com valor 25
+idades.Add("Maria", 30); // Adiciona a chave "Maria" com valor 30
+
+// Declaração de tupla com dois elementos: string e inteiro
+Tuple<string, int> pessoa = new Tuple<string, int>("Ana", 28); //
+// Declaração de array de inteiros com tamanho fixo
+int[] numerosArray = new int[5]; // Declaração de array de inteiros
+numerosArray[0] = 10; // Atribui o valor 10 ao primeiro elemento do array
+numerosArray[1] = 20; // Atribui o valor 20 ao segundo elemento do array
+
+// Declaração de lista de strings com inicialização direta
+List<string> nomes = new List<string> { "Carlos", "Fernanda", "Lucas" }; // Declaração de lista de strings com inicialização direta
+
+// Adiciona mais elementos à lista
+nomes.Add("Ana"); // Adiciona "Ana" à lista
+nomes.Add("Pedro"); // Adiciona "Pedro" à lista
+
+// Declaração de lista de inteiros com inicialização direta
+List<int> numeros = new List<int> { 1, 2, 3, 4, 5 }; // Declaração de lista de inteiros com inicialização direta
+
+// Adiciona mais elementos à lista
+numeros.Add(6); // Adiciona 6 à lista
+
+// Declaração de dicionário com chave string e valor inteiro
+Dictionary<string, int> dicionario = new Dictionary<string, int>
+{
+    { "João", 25 }, // Adiciona a chave "João" com valor 25
+    { "Maria", 30 } // Adiciona a chave "Maria" com valor 30
+};
+*/
+
+/*
+Constantes:
+const int numeroMaximo = 100; // Declaração de constante inteira
+const double PI = 3.14159;
+const string mensagem = "Bem-vindo ao C#";
+const int maxTentativas = 5;
+const string caminhoArquivo = "C:\\arquivos\\dados.txt"; // Declaração de constante de string
+const bool ativo = true; // Declaração de constante booleana    
+*/
+
+
+
+
 
 /*
 Cast - Casting (Conversões)
