@@ -34,7 +34,22 @@ double preco = 19.99f; // Declaração de variável de ponto flutuante usa-se a 
 char letra = 'A'; // Declaração de variável de caractere sempre com aspas simples
 decimal valor = 100.50m; // Declaração de variável decimal para valores monetários
 
+Usar literais de ponto flutuante
+Um número de ponto flutuante é um número que contém uma decimal, por exemplo, 3.14159. 
+O C# dá suporte a três tipos de dados para representar números decimais: 
 
+float -> float peso = 70.5f; // Declaração de variável de ponto flutuante usa-se a letra f
+
+double -> double preco = 19.99d; // Declaração de variável de ponto flutuante usa-se a letra d
+
+decimal -> decimal valor = 19.99m; // Declaração de variável decimal usa-se a letra m
+
+Cada tipo dá suporte a diferentes graus de precisão.
+Float Type    Precision
+----------------------------
+float         ~6-9 digits
+double        ~15-17 digits
+decimal        28-29 digits
 
 /*
 Cast - Casting (Conversões)
