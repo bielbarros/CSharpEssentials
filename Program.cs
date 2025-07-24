@@ -137,6 +137,78 @@ Regras de nomenclatura:
 */
 
 
+/*
+// Exemplo de uso de Console.WriteLine com formatação
+Console.WriteLine("Hello\nWorld!");
+Saída: Hello
+      World!
+
+Console.WriteLine("Hello\tWorld!");
+Saída: Hello    World!
+
+
+Console.WriteLine("Hello \"World\"!");
+Saída: Hello "World"!
+
+
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.WriteLine("\nOutput Directory:\t");
+
+Saída: 
+
+Generating invoices for customer "Contoso Corp" ...
+
+Invoice: 1021           Complete!
+Invoice: 1022           Complete!
+
+Output Directory:
+
+
+
+*/
+
+
+/* 
+ Caracteres de Escape Unicode em C#
+
+  Definição:
+  - Permitem inserir símbolos Unicode em strings usando códigos UTF-16.
+  - Sintaxe: \uXXXX (XXXX = 4 dígitos hexadecimais)
+
+  Exemplos:
+  Console.WriteLine("\u00A9 2025 Copilot");        // © 2025 Copilot
+  Console.WriteLine("\u3053\u3093\u306B\u3061\u306F"); // こんにちは (Olá em japonês)
+
+  Aplicações:
+  - Exibir textos em idiomas não latinos
+  - Mostrar emojis e símbolos gráficos (\u263A = ☺, \u2665 = ♥)
+
+  Cuidados:
+  - Alguns consoles não exibem todos os caracteres Unicode corretamente
+  - Caracteres fora do UTF-16 exigem métodos como char.ConvertFromUtf32()
+    Exemplo: Console.WriteLine(char.ConvertFromUtf32(0x1F60A)); // 
+  - Sequências incorretas geram erro: Unrecognized escape sequence
+
+  Dica:
+  - Use @ antes da string para preservar formatação:
+    Console.WriteLine(@"\u2600 está ensolarado hoje!"); // exibe literalmente \u2600
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 Cast - Casting (Conversões)
