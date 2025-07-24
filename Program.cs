@@ -17,6 +17,26 @@ Console.WriteLine("");
 */
 
 /*
+Tipos de dados primitivos:
+int inteiro = 10; // Tipo inteiro
+double decimalPontoFlutuante = 3.14; // Tipo ponto flutuante
+bool booleano = true; // Tipo booleano
+char caractere = 'A'; // Tipo caractere
+string texto = "Olá, Mundo!"; // Tipo texto
+decimal valorMonetario = 19.99m; // Tipo decimal para valores monetários
+DateTime dataHora = DateTime.Now; // Tipo data e hora
+
+Declarações de variáveis:
+int numero = 5; // Declaração de variável inteira
+string nome = "João"; // Declaração de variável de texto
+bool ativo = true; // Declaração de variável booleana
+double preco = 19.99f; // Declaração de variável de ponto flutuante usa-se a letra f
+char letra = 'A'; // Declaração de variável de caractere sempre com aspas simples
+decimal valor = 100.50m; // Declaração de variável decimal para valores monetários
+
+
+
+/*
 Cast - Casting (Conversões)
 
 int a = Convert.ToInt32("123"); // Convert.ToInt32 converte uma string para um inteiro 
