@@ -164,10 +164,8 @@ Invoice: 1021           Complete!
 Invoice: 1022           Complete!
 
 Output Directory:
-
-
-
 */
+
 
 
 /* 
@@ -197,8 +195,44 @@ Output Directory:
 */
 
 
+/*
+Calculos simples:
+int sum = 7 + 5;
+int difference = 7 - 5;
+int product = 7 * 5;
+int quotient = 7 / 5;
+
+Console.WriteLine("Sum: " + sum);
+Console.WriteLine("Difference: " + difference);
+Console.WriteLine("Product: " + product);
+Console.WriteLine("Quotient: " + quotient);
+*/
 
 
+
+/*
+Incrementar e decrementar valores:
+int value = 0;     // O valor agora é 0
+value = value + 5; // O valor agora é 5
+value += 5;        // O valor agora é 10.
+
+
+
+int value = 0;     // O valor agora é 0.
+value = value + 1; // O valor agora é 1.
+value++;           // O valor agora é 2.
+
+
+
+/*
+Truncar valores:
+
+Trucar quer dizer remover a parte decimal de um número, mantendo apenas a parte inteira.
+
+double pi = 3.14159;
+int inteiro = (int)pi; // Trunca o valor de pi para 3
+Console.WriteLine(inteiro);
+*/
 
 
 
