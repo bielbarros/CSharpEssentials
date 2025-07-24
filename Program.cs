@@ -120,6 +120,21 @@ const bool ativo = true; // Declaração de constante booleana
 */
 
 
+/*
+Regras de nomenclatura:
+- Nomes de variáveis devem ser descritivos e começar com letra minúscula.
+- Nomes de classes devem começar com letra maiúscula e usar PascalCase: 
+    Pessoa, Curso, Estacionamento.
+
+- Nomes de propriedades devem começar com letra maiúscula e usar PascalCase:
+    Idade, CPF, Nome, Sobrenome.
+
+- Nomes de métodos devem começar com letra minúscula e usar camelCase:
+    validarDados, exibirInformacoes, adicionarAluno, removerAluno.
+
+- Nomes de constantes devem ser escritos em letras maiúsculas e usar snake_case:
+    MAX_TENTATIVAS, CAMINHO_ARQUIVO, VALOR_HORA.
+*/
 
 
 
