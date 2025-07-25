@@ -244,7 +244,40 @@ Console.WriteLine(pangram.Contains("cow"));
 */
 
 
+/*
+Blocos de código e escopo de variável
 
+bool flag = true;
+if (flag)
+{
+    int value = 10;
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+Nesse caso a variável value só existe dentro do bloco if.
+Fora do bloco, a variável value não é acessível, sendo assim caso o código abaixo seja executado, dará erro:
+
+bool flag = true;
+if (flag)
+{
+    int value = 10;
+    Console.WriteLine($"Inside the code block: {value}");
+}
+Console.WriteLine($"Outside the code block: {value}");
+
+
+Para corrigir o erro, precisamos declarar a variável value fora do bloco if:
+bool flag = true;
+int value;
+
+if (flag)
+{
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
+*/
 
 
 /*
