@@ -236,9 +236,12 @@ Console.WriteLine(inteiro);
 
 
 
-
-
-
+/*
+Operadores de comparação:
+string pangram = "The quick brown fox jumps over the lazy dog.";
+Console.WriteLine(pangram.Contains("fox"));
+Console.WriteLine(pangram.Contains("cow"));
+*/
 
 
 
@@ -410,8 +413,23 @@ else
 int idade = 18;
 string resultado = (idade >= 18) ? "Maior de idade" : "Menor de idade";
 Console.WriteLine(resultado);
+O operador ternário é uma forma concisa de escrever uma condição if-else
+A sintaxe é: (condição) ? valor_se_verdadeiro : valor_se_falso
+
+
+int saleAmount = 1001;
+int discount = saleAmount > 1000 ? 100 : 50;
+Console.WriteLine($"Discount: {discount}");
+
 // O operador ternário é uma forma concisa de escrever uma condição if-else
-// A sintaxe é: (condição) ? valor_se_verdadeiro : valor_se_falso
+
+int saleAmount = 1001;
+// int discount = saleAmount > 1000 ? 100 : 50;
+
+Console.WriteLine($"Discount: {(saleAmount > 1000 ? 100 : 50)}");
+
+
+
 */
 
 /*
