@@ -1251,3 +1251,222 @@ void CheckUserAccess(string permission, int level)
     Console.WriteLine("You do not have sufficient privileges.");
 }
 */
+
+
+
+
+
+
+
+
+
+
+// DESAFIOS DE CÓDIGO:
+
+/*
+
+Projeto de código 1 – escrever o código que valida a entrada de inteiro
+Veja as seguintes condições que seu primeiro projeto de codificação deve implementar:
+
+A solução deve incluir uma iteração do-while ou while.
+
+Antes do bloco de iteração: a solução deve usar uma instrução Console.WriteLine() para solicitar ao usuário um valor inteiro entre 5 e 10.
+
+Dentro do bloco de iteração:
+
+A solução deve usar uma instrução Console.ReadLine() para obter uma entrada do usuário.
+A solução deve garantir que a entrada seja uma representação válida de um inteiro.
+Se o valor inteiro não estiver entre 5 e 10, o código deverá usar uma instrução Console.WriteLine() para solicitar ao usuário um valor inteiro entre 5 e 10.
+A solução deve garantir que o valor inteiro esteja entre 5 e 10 antes de sair da iteração.
+Abaixo (depois) do bloco de código de iteração: a solução deve usar uma instrução Console.WriteLine() para informar ao usuário que o valor de entrada foi aceito.
+
+Verifique se você tem o arquivo Program.cs vazio aberto no Visual Studio Code.
+
+Se necessário, abra o Visual Studio Code e conclua as seguintes etapas para preparar o arquivo Program.cs no Editor:
+
+No menu Arquivo, selecione Abrir Pasta.
+
+Use a caixa de diálogo Abrir Pasta para navegar e, em seguida, abra a pasta CsharpProjects.
+
+No painel EXPLORER do Visual Studio Code, selecione Program.cs.
+
+No menu Seleção do Visual Studio Code, escolha Selecionar Tudo e pressione a tecla Delete.
+
+Escreva o código que implementa cada condição do projeto de código 1.
+
+Execute o aplicativo e verifique se o código valida a entrada do usuário com base nos requisitos especificados.
+
+Por exemplo, quando você executa o aplicativo, ele deve rejeitar valores de entrada como "dois" e "2", mas aceitar um valor de entrada de "7".
+
+
+string? readResult;
+string valueEntered = "";
+int numValue = 0;
+bool validNumber = false;
+
+Console.WriteLine("Enter an integer value between 5 and 10");
+
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        valueEntered = readResult;
+    }
+
+    validNumber = int.TryParse(valueEntered, out numValue);
+
+    if (validNumber == true)
+    {
+        if (numValue <= 5 || numValue >= 10)
+        {
+            validNumber = false;
+            Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
+        }
+    }
+    else 
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+} while (validNumber == false);
+
+Console.WriteLine($"Your input value ({numValue}) has been accepted.");
+
+readResult = Console.ReadLine();
+
+*/
+
+
+
+
+// SEGUNDO DESAFIO:
+
+/*
+Projeto de código 2 – escrever o código que valida a entrada de cadeia de caracteres
+Veja as seguintes condições que seu segundo projeto de codificação deve implementar:
+
+A solução deve incluir uma iteração do-while ou while.
+
+Antes do bloco de iteração: a solução deve usar uma instrução Console.WriteLine() para solicitar ao usuário um dos três nomes de função: Administrador, Gerente ou Usuário.
+
+Dentro do bloco de iteração:
+
+A solução deve usar uma instrução Console.ReadLine() para obter uma entrada do usuário.
+A solução deve garantir que o valor inserido corresponda a uma das três opções de função.
+Sua solução deve usar o método Trim() no valor de entrada para ignorar caracteres de espaço de entrelinhamento e à direita.
+A solução deve usar o método ToLower() no valor de entrada para ignorar maiúsculas e minúsculas.
+Se o valor inserido não corresponder a uma das opções de função, o código deverá usar uma instrução Console.WriteLine() para solicitar ao usuário uma entrada válida.
+Abaixo (depois) do bloco de código de iteração: a solução deve usar uma instrução Console.WriteLine() para informar ao usuário que o valor de entrada foi aceito.
+
+Remover todo o código no painel Editor do Visual Studio Code
+
+Selecionar todas as linhas de código no editor de código
+No menu Editar, selecione Ativar comentário de bloco.
+Escreva o código que implementa cada condição do projeto de código 2.
+
+Execute o aplicativo e verifique se o código valida a entrada do usuário com base nos requisitos especificados.
+
+Por exemplo, quando você executa o aplicativo, ele deve rejeitar um valor de entrada como "Admin", mas aceitar um valor de entrada "administrador".
+
+string? readResult;
+string roleName = "";
+bool validEntry = false;
+
+do
+{                
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        roleName = readResult.Trim();
+    }
+
+    if (roleName.ToLower() == "administrator" || roleName.ToLower() == "manager" || roleName.ToLower() == "user") 
+    {
+        validEntry = true;
+    }
+    else
+    {
+        Console.Write($"The role name that you entered, \"{roleName}\" is not valid. ");
+    }
+
+} while (validEntry == false);
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
+
+*/
+
+
+// TERCEIRO DESAFIO:
+
+/*
+
+Projeto de código 3: escreva um código que processe o conteúdo de uma matriz de caracteres
+Veja as seguintes condições que seu terceiro projeto de codificação deve implementar:
+
+A solução deve usar a seguinte matriz de cadeia de caracteres para representar a entrada para a lógica de codificação:
+
+c#
+
+Copiar
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+A solução deve declarar uma variável inteira chamada periodLocation que pode ser usada para manter o local do caractere de ponto dentro de uma cadeia de caracteres.
+
+A solução deve incluir um loop foreach ou for externo que possa ser usado para processar cada elemento da cadeia de caracteres na matriz. A variável da cadeia de caracteres que será processada dentro dos loops deve ser chamada de myString.
+
+No loop externo, a solução deve usar o método IndexOf() da classe String para obter a localização do primeiro caractere de ponto na variável myString. A chamada de método deve ser semelhante a: myString.IndexOf("."). Se não houver nenhum caractere de ponto na cadeia de caracteres, um valor de -1 será retornado.
+
+A solução deve incluir um loop do-while ou while interno que possa ser usado para processar a variável myString.
+
+No loop interno, a solução deve extrair e exibir (gravar no console) cada frase contida em cada uma das cadeias de caracteres processadas.
+
+No loop interno, a solução não deve exibir o caractere de ponto.
+
+No loop interno, a solução deve usar os métodos Remove(), Substring() e TrimStart() para processar as informações da cadeia de caracteres.
+
+Remover todo o código no painel Editor do Visual Studio Code
+
+Selecionar todas as linhas de código no editor de código
+No menu Editar, selecione Ativar comentário de bloco.
+Escreva o código que implementa cada condição listada para o projeto de código 3.
+
+Execute o aplicativo e verifique se a saída atende aos requisitos.
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
+{
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
+    {
+
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
+    }
+ 
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
+}
+
+*/
