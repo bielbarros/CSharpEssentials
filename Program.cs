@@ -577,7 +577,7 @@ while (contador < 5) // O loop while executa um bloco de código enquanto uma co
 
 // Do-While Loop
 contador = 0;
-do
+do                        // do-while executa um bloco de código pelo menos uma vez, mesmo que a condição seja falsa
 {
     Console.WriteLine($"Contador (do-while): {contador}");
     contador++;
@@ -591,6 +591,49 @@ foreach (string fruta in frutas)
     Console.WriteLine($"Fruta: {fruta}");
 }
 */
+
+
+
+/*
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+
+        int heroHealth = 10;
+        int monsterHealth = 10;
+
+        do
+        {
+            // Herói ataca
+            int heroAttack = random.Next(1, 11);
+            monsterHealth -= heroAttack;
+            Console.WriteLine($"Monstro foi atacado e perdeu {heroAttack} de vida. Agora tem {Math.Max(monsterHealth, 0)} de vida.");
+
+            // Monstro só contra-ataca se estiver vivo
+            if (monsterHealth > 0)
+            {
+                int monsterAttack = random.Next(1, 11);
+                heroHealth -= monsterAttack;
+                Console.WriteLine($"Herói foi atacado e perdeu {monsterAttack} de vida. Agora tem {Math.Max(heroHealth, 0)} de vida.");
+            }
+
+        } while (heroHealth > 0 && monsterHealth > 0);
+
+        Console.WriteLine(heroHealth > 0 ? "Herói venceu!" : "Monstro venceu!");
+    }
+}
+*/
+
+
+
+
+
+
+
 
 /*
 // Menu com While Loop e Switch Case
