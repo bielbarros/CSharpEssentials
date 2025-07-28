@@ -444,6 +444,38 @@ Retorna um bool para indicar se a ação foi bem-sucedida ou falhou.
 Output:
 if (int.TryParse(value, out result))
 
+// Exemplo de uso do TryParse
+
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+output: 102
+
+
+
+// Exemplo de uso do TryParse
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+output: 152
+
 */
 
 
@@ -636,6 +668,71 @@ Console.WriteLine($"Atribuição com multiplicação: {a}");
 a /= 4; // a = a / 4
 Console.WriteLine($"Atribuição com divisão: {a}");
 */
+
+/*
+
+Método SORT 
+
+O método sort é usado para ordenar uma coleção de elementos, como um array ou uma lista.
+// Exemplo de uso do método Sort com um array de strings
+
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+// Saída:
+-- A11
+-- A13
+-- B12
+-- B14
+
+Para inverter a ordem dos paletes usando o método Array.Reverse()
+
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Console.WriteLine("Reversed...");
+Array.Reverse(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+// Saída:
+-- B14
+-- B12
+-- A13
+-- A11
+*/
+
+
+/*
+O método Array.Clear() permite eliminar o conteúdo de elementos específicos em sua matriz, substituindo-os pelo valor padrão da matriz. 
+Por exemplo, se você limpar um elemento em uma matriz string, o valor desmarcado será substituído por null. 
+Da mesma forma, quando você limpa um elemento em uma matriz int, a substituição é 0 (zero).
+
+O método Array.Resize(), por outro lado, permite que você adicione ou remova elementos de sua matriz.
+
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
 
 /*
 // Funções trigonométricas
