@@ -107,13 +107,10 @@ Console.WriteLine("Floating point types:");
 Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
 Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
 Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
-
-
 */
 
 
 /*
-
 Para simplificar:
 
 int para a maioria dos números inteiros
@@ -127,15 +124,7 @@ byte: para trabalhar com dados codificados provenientes de outros sistemas de co
 double: para trabalhar com fins geométricos ou científicos. double é usado com frequência ao criar jogos que envolvem movimento.
 System.DateTime para um valor de data e hora específico.
 System.TimeSpan para um intervalo de anos/mês/dias/horas/minutos/segundos/milissegundos.
-
-
-
-
-
-
-
-
-
+*/
 
 /*
 Tipos de dados compostos:
@@ -373,20 +362,25 @@ int inteiro = 10;
 string c = inteiro.ToString(); // ToString converte um inteiro para uma string
 Console.WriteLine(c);
 
-
+// Conversão de tipos numéricos
 decimal myDecimal = 1.23456789m;
 float myFloat = (float)myDecimal;
 
 Console.WriteLine($"Decimal: {myDecimal}");
 Console.WriteLine($"Float  : {myFloat}");
 
-
+// Conversão implícita
 int myInt = 3;
 Console.WriteLine($"int: {myInt}");
 
 decimal myDecimal = myInt;
 Console.WriteLine($"decimal: {myDecimal}");
 
+// Conversão explícita
+int first = 5;
+int second = 7;
+string message = first.ToString() + second.ToString();
+Console.WriteLine(message);
 
 
 // Conversões não necessárias
@@ -412,8 +406,45 @@ else
 {
     Console.WriteLine("Conversão falhou");
 }
+
+// Conversão de string para inteiro
+string first = "5";
+string second = "7";
+int sum = int.Parse(first) + int.Parse(second);
+Console.WriteLine(sum);
+
+
+// Conversão de string para inteiro com Convert
+string value1 = "5";
+string value2 = "7";
+int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+Console.WriteLine(result);
+
+
+// Casting e conversão de tipos numéricos
+int value = (int)1.5m; // casting converte um decimal para um inteiro, truncando a parte decimal
+Console.WriteLine(value); // Saída: 1
+
+
+// Convert.ToInt32 arredonda o valor para o inteiro mais próximo
+int value2 = Convert.ToInt32(1.5m); // converting arredonda para cima
+Console.WriteLine(value2); // Saída: 2
+
 */
 
+/*
+
+Use TryParse()
+O método TryParse() faz várias coisas simultaneamente:
+
+Ele tenta converter uma cadeia de caracteres para o tipo de dado numérico fornecido.
+Se a conversão der certo, o valor convertido é armazenado em um parâmetro de saída, explicado na seção a seguir.
+Retorna um bool para indicar se a ação foi bem-sucedida ou falhou.
+
+Output:
+if (int.TryParse(value, out result))
+
+*/
 
 
 /*
@@ -722,12 +753,6 @@ class Program
     }
 }
 */
-
-
-
-
-
-
 
 
 /*
@@ -1427,6 +1452,9 @@ do
 Console.WriteLine($"Your input value ({numValue}) has been accepted.");
 
 readResult = Console.ReadLine();
+
+
+
 
 */
 
