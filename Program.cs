@@ -11,22 +11,6 @@ using models.Estacionamento;
 using models.Pessoa;
 using models.Curso;
 
-/*
-Console.WriteLine("Tipos integrais assinados:");
-
-Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
-Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
-Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
-Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
-
-Console.WriteLine("");
-Console.WriteLine("Tipos integrais não assinados:");
-
-Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
-Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
-Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
-Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
-*/
 
 /*
 Console.WriteLine("Hello, World!");
@@ -75,6 +59,83 @@ double        ~15-17 digits
 decimal        28-29 digits
 
 */
+
+
+/*
+Referência de tipos:
+
+Tipos de referência são tipos de dados que armazenam uma referência a um objeto na memória, em vez de armazenar o valor real. 
+Isso significa que, quando você atribui um tipo de referência a outra variável, ambas as variáveis apontam para o mesmo objeto na memória.
+
+Exemplo de tipos de referência:
+- Classes
+- Arrays
+- Delegates
+- Strings (embora sejam imutáveis, são tipos de referência)
+
+int[] ref_A= new int[1];
+ref_A[0] = 2;
+int[] ref_B = ref_A;
+ref_B[0] = 5;
+
+Console.WriteLine("--Reference Types--");
+Console.WriteLine($"ref_A[0]: {ref_A[0]}");
+Console.WriteLine($"ref_B[0]: {ref_B[0]}");
+
+
+
+
+/*
+Console.WriteLine("Tipos integrais assinados:");
+
+Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
+Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+
+Console.WriteLine("");
+Console.WriteLine("Tipos integrais não assinados:");
+
+Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+
+
+Console.WriteLine("");
+Console.WriteLine("Floating point types:");
+Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
+Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
+Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
+
+
+*/
+
+
+/*
+
+Para simplificar:
+
+int para a maioria dos números inteiros
+decimal para números que representam dinheiro
+bool para valores true ou false
+string para valor alfanumérico
+Escolha tipos complexos especializados para situações especiais
+Não reinvente os tipos de dados se um ou mais já existirem para uma determinada finalidade. Os seguintes exemplos identificam quando um tipo de dados .NET específico pode ser útil:
+
+byte: para trabalhar com dados codificados provenientes de outros sistemas de computação ou que usam diferentes conjuntos de caracteres.
+double: para trabalhar com fins geométricos ou científicos. double é usado com frequência ao criar jogos que envolvem movimento.
+System.DateTime para um valor de data e hora específico.
+System.TimeSpan para um intervalo de anos/mês/dias/horas/minutos/segundos/milissegundos.
+
+
+
+
+
+
+
+
+
 
 /*
 Tipos de dados compostos:
@@ -313,6 +374,21 @@ string c = inteiro.ToString(); // ToString converte um inteiro para uma string
 Console.WriteLine(c);
 
 
+decimal myDecimal = 1.23456789m;
+float myFloat = (float)myDecimal;
+
+Console.WriteLine($"Decimal: {myDecimal}");
+Console.WriteLine($"Float  : {myFloat}");
+
+
+int myInt = 3;
+Console.WriteLine($"int: {myInt}");
+
+decimal myDecimal = myInt;
+Console.WriteLine($"decimal: {myDecimal}");
+
+
+
 // Conversões não necessárias
 
 int d = 5;
@@ -337,6 +413,8 @@ else
     Console.WriteLine("Conversão falhou");
 }
 */
+
+
 
 /*
 CONDICIONAIS
