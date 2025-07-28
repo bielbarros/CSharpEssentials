@@ -811,6 +811,111 @@ Em seguida, você criará uma segunda matriz que tem o tamanho da variável do c
 */
 
 
+/*
+
+Inverter uma string usando Array.Reverse()
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+string result = new string(valueArray);
+Console.WriteLine(result); // saída: 321cba
+
+
+
+Inverter uma string usando String.Join() para separar os caracteres com vírgula
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result); // saída: 3,2,1,c,b,a
+
+
+
+Invertendo uma string e separando os caracteres com vírgula, gerando no final uma string de caracteres separados por vírgula
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result);
+
+string[] items = result.Split(',');
+foreach (string item in items)
+{
+    Console.WriteLine(item);
+}
+
+
+// DESAFIO DE CÓDIGO
+Inverter uma string e separar os caracteres com vírgula sem alterar a string original
+
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+// Step 1
+string[] message = pangram.Split(' ');
+
+//Step 2
+string[] newMessage = new string[message.Length];
+
+// Step 3
+for (int i = 0; i < message.Length; i++)
+{
+    char[] letters = message[i].ToCharArray();
+    Array.Reverse(letters);
+    newMessage[i] = new string(letters);
+}
+
+//Step 4
+string result = String.Join(" ", newMessage);
+Console.WriteLine(result);
+
+
+
+DESAFIO DE CÓDIGO 2:
+
+
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+Observe que no código anterior, a variável orderStream contém um string de várias IDs de pedido separadas por vírgulas.
+
+Adicione o código abaixo do código anterior para analisar as "IDs de pedido" do de pedidos de entrada string e armazenar as "IDs do pedido" em uma matriz.
+
+Adicione o código para gerar cada "ID do pedido" na ordem classificada e marque os pedidos que não tiverem exatamente quatro caracteres como "- Erro".
+
+
+// Declara uma string com códigos de pedidos separados por vírgula
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+
+// Separa a string em um array de strings, usando a vírgula como delimitador
+string[] items = orderStream.Split(',');
+
+// Ordena os itens em ordem alfabética (como palavras)
+Array.Sort(items);
+
+// Percorre cada item ordenado
+foreach (var item in items)
+{
+    // Verifica se o código tem exatamente 4 caracteres
+    if (item.Length == 4)
+    {
+        // Se sim, imprime o código normalmente
+        Console.WriteLine(item);
+    }
+    else
+    {
+        // Se não, imprime o código com uma mensagem de erro
+        Console.WriteLine(item + "\t- Error");
+    }
+}
+
+
+*/
+
+
+
 
 
 
