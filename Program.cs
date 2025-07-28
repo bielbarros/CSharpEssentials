@@ -734,6 +734,88 @@ foreach (var pallet in pallets)
     Console.WriteLine($"-- {pallet}");
 }
 
+
+Saida:
+
+Clearing 2 ... count: 4
+-- 
+-- 
+-- B12
+-- A13
+
+
+// O método Array.Clear() é usado para limpar uma parte de um array, definindo os elementos especificados como seus valores padrão.
+
+string[] pallets = [ "B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Console.WriteLine($"Before: {pallets[0]}");
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"After: {pallets[0]}");
+
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+
+
+
+// Array.Resize() é um método que permite alterar o tamanho de um array, adicionando ou removendo elementos.
+
+string[] pallets =  ["B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 6);
+Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
+
+pallets[4] = "C01";
+pallets[5] = "C02";
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Saída:
+
+Clearing 2 ... count: 4
+-- 
+-- 
+-- B12
+-- A13
+
+Resizing 6 ... count: 6
+-- 
+-- 
+-- B12
+-- A13
+-- C01
+-- C02
+
+
+É possível remover elementos nulos de uma matriz?
+Se o método Array.Resize() não remover elementos vazios de uma matriz, há outro método auxiliar que faz o trabalho automaticamente? 
+Não. A melhor maneira de esvaziar os elementos de uma matriz é contar o número de elementos não nulos percorrendo cada item e incrementando uma variável (contador). 
+Em seguida, você criará uma segunda matriz que tem o tamanho da variável do contador. Por fim, você executará um loop em cada elemento na matriz original e copiará valores não nulos na nova matriz.
+
+*/
+
+
+
+
+
+
+
 /*
 // Funções trigonométricas
 double angulo = 30.0; // Ângulo em graus
