@@ -12,6 +12,23 @@ using models.Pessoa;
 using models.Curso;
 
 /*
+Console.WriteLine("Tipos integrais assinados:");
+
+Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
+Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+
+Console.WriteLine("");
+Console.WriteLine("Tipos integrais não assinados:");
+
+Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+*/
+
+/*
 Console.WriteLine("Hello, World!");
 Console.WriteLine("");
 */
@@ -1147,11 +1164,10 @@ else
     Console.WriteLine($"{dataString} não é uma data válida.");
 }
 
-
 */
 
 
-/*
+/*          
 Leitura de arquivos .txt:
 
 string[] linhas = File.ReadAllLines("arquivos/leitura.txt"); // Lê todas as linhas do arquivo .txt
