@@ -1971,3 +1971,55 @@ for (int i = 0; i < stringsCount; i++)
 }
 
 */
+
+/*
+
+EXEMPLO DE FORMATAÇÃO DE NÚMEROS E MOEDA:
+
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"   Shares: {productShares:N3} Product");
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+Console.WriteLine($"     Total Billed: {total:C}");
+
+*/
+
+
+/*
+
+Exemplo de uso do método PadLeft para formatar uma string, adicionando espaços à esquerda para que a string tenha um comprimento total de 40 caracteres:
+
+string input = "Pad this";
+Console.WriteLine(input.PadLeft(40));
+
+Saída: 
+                                       Pad this
+
+/*
+ Método sobrecarregado em C#
+
+ Em C#, um método sobrecarregado é uma versão alternativa de um método existente,
+ que aceita diferentes conjuntos de argumentos. Isso permite flexibilizar o uso
+ do método para diferentes cenários.
+
+ Por exemplo, o método PadLeft() pode ser chamado com apenas um argumento
+ (comprimento total desejado), ou com dois argumentos (comprimento e caractere
+ de preenchimento). A segunda versão é uma sobrecarga.
+
+ Exemplo:
+ Console.WriteLine(input.PadLeft(12, '-'));
+ Console.WriteLine(input.PadRight(12, '-'));
+
+ O primeiro adiciona o caractere '-' à esquerda da string até atingir 12 caracteres.
+ O segundo faz o mesmo à direita.
+
+ Saída:
+ ----Pad this
+ Pad this----
+*/
