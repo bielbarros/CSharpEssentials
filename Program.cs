@@ -1479,6 +1479,29 @@ Saída: Price: R$ 123,45 (Save R$ 50,00)
 
 
 
+/*
+ Formatação de percentuais em C#
+
+ O especificador de formato "P" é usado para exibir valores numéricos como porcentagens.
+ Por padrão, "P" multiplica o valor por 100 e adiciona o símbolo de porcentagem (%).
+
+ A notação "P2" arredonda o resultado para duas casas decimais.
+
+ Exemplo:
+ decimal tax = 0.36785m;
+ Console.WriteLine($"Tax rate: {tax:P2}");
+ // Saída com cultura en-US: "Tax rate: 36.79%"
+
+ Para maior ou menor precisão, basta ajustar o número após o "P":
+ - "P0" → sem casas decimais
+ - "P3" → três casas decimais
+
+ A saída depende da cultura do sistema:
+ - en-US → "36.79%"
+ - pt-BR → "36,79%"
+
+ Isso torna a apresentação de valores proporcionais mais clara e padronizada.
+*/
 
 
 
