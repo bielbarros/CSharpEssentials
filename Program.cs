@@ -2227,3 +2227,90 @@ Saída:
 This is example data
 
 */
+
+
+/*
+
+DESAFIO:
+
+Extrair, substituir e remover dados de uma cadeia de caracteres de entrada
+Selecione e exclua todas as linhas de código no Editor do Visual Studio Code.
+
+No Visual Studio Code, adicione o seguinte código "starter" para obter os dados do desafio:
+
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+Se você executar o código, a saída exibirá linhas em branco. Os valores iniciais de quantity e output são valores vazios string.
+
+Reserve um minuto para examinar a linha inicial do código que contém um elemento string de HTML.
+
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+Observe as marcas:<div>,<h2>,<span>e o código &trade; de símbolo contido na variável input.
+
+Examine a saída desejada para a saída final do programa:
+
+Output:
+Quantity: 5000
+Output: <h2>Widgets &reg;</h2><span>5000</span>
+
+
+Comece a adicionar o código da solução ao código inicial sob o comentário // Your work here.
+
+Defina a variável quantity para o valor obtido extraindo o texto entre as marcas <span> e </span>.
+
+Defina a variável output com o valor de input, em seguida, remova as marcas <div> e </div>.
+
+Substitua o caractere ™ HTML (&trade;) por ® (&reg;) na output variável.
+
+Execute sua solução e verifique se a saída corresponde à saída esperada.
+
+Output:
+Quantity: 5000
+Output: <h2>Widgets &reg;</h2><span>5000</span>
+
+
+SOLUÇÃO:
+
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+
+// Extract the "quantity"
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+int quantityStart = input.IndexOf(openSpan) + openSpan.Length; // + length of <span> so index at end of <span> tag
+int quantityEnd= input.IndexOf(closeSpan);
+int quantityLength = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, quantityLength);
+quantity = $"Quantity: {quantity}";
+
+// Set output to input, replacing the trademark symbol with the registered trademark symbol
+const string tradeSymbol = "&trade;";
+const string regSymbol = "&reg;";
+output = input.Replace(tradeSymbol, regSymbol);
+
+// Remove the opening <div> tag
+const string openDiv = "<div>";
+int divStart = output.IndexOf(openDiv);
+output = output.Remove(divStart, openDiv.Length);
+
+// Remove the closing </div> tag and add "Output:" to the beginning
+const string closeDiv = "</div>";
+int divCloseStart = output.IndexOf(closeDiv);
+output = "Output: " + output.Remove(divCloseStart, closeDiv.Length);
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+
+*/
