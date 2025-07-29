@@ -2108,7 +2108,9 @@ Console.WriteLine(comparisonMessage);
 Use o Editor do Visual Studio Code para gerar a mensagem com as variáveis e o código fornecidos. Você não pode excluir nenhum código existente, exceto os comentários. Verifique se o código gera a seguinte mensagem: Output Copiar Dear Ms. Barros, As a customer of our Magic Yield offering we are excited to tell you about a new financial product that would dramatically increase your return. Currently, you own 2,975,000.00 shares at a return of 12.75%. Our new product, Glorious Future offers a return of 13.13%. Given your current volume, your potential profit would be $63,000,000.00. Here's a quick comparison: Magic Yield 12.75% $55,000,000.00 Glorious Future 13.13% $63,000,000.00 Boa sorte!
 */
 
+/*
 
+SOLUTION:
 
 
 string customerName = "Ms. Barros";
@@ -2141,3 +2143,45 @@ comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
 comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
 
 Console.WriteLine(comparisonMessage);
+
+*/
+
+/*
+Esse trecho de código em C# busca localizar a posição dos parênteses em uma string.
+
+// Define uma string contendo um texto com parênteses
+string message = "Find what is (inside the parentheses)";
+
+// Procura pela posição do parêntese de abertura '(' na string
+int openingPosition = message.IndexOf('(');
+
+// Procura pela posição do parêntese de fechamento ')' na string
+int closingPosition = message.IndexOf(')');
+
+// Exibe a posição encontrada do parêntese de abertura
+Console.WriteLine(openingPosition);
+
+// Exibe a posição encontrada do parêntese de fechamento
+Console.WriteLine(closingPosition);
+
+Saída:
+13
+36
+*/
+
+/*
+O método IndexOf() retorna o índice da primeira ocorrência de um caractere ou cadeia de caracteres.
+O método LastIndexOf() retorna o índice da última ocorrência de um caractere ou cadeia de caracteres.
+Ambos os métodos retornarão -1 se o caractere ou a cadeia de caracteres não forem encontrados.
+
+string message = "hello there!";
+
+// Armazena a posição da primeira ocorrência do caractere 'h' na variável first_h
+int first_h = message.IndexOf('h');
+
+// Armazena a posição da última ocorrência do caractere 'h' na variável last_h
+int last_h = message.LastIndexOf('h');
+
+// Exibe a mensagem informando as posições encontradas do caractere 'h'
+Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
+*/
