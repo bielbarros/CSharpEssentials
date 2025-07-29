@@ -1411,6 +1411,78 @@ Console.WriteLine(nomeCompletoInterpolado); // Imprime "João Silva"
 
 
 /*
+Formatação Composta em C#
+
+A formatação composta permite criar strings dinâmicas com marcadores numéricos (chaves como {0}, {1}, etc.)
+que são substituídos por valores durante a execução do programa (runtime).
+  
+Exemplo:
+string first = "Hello";
+string second = "World";
+string result = string.Format("{0} {1}!", first, second);
+Console.WriteLine(result); // Saída: Hello World!
+ 
+  - {0} será substituído por "Hello" (variável 'first')
+  - {1} será substituído por "World" (variável 'second')
+  
+   Vantagens:
+  - Organiza melhor o código comparado à concatenação manual.
+  - Permite reutilizar valores: "{0} {0}" → "Hello Hello"
+  - Você pode alterar a ordem: "{1} {0}" → "World Hello"
+  
+Alternativa moderna (desde C# 6.0): Interpolação de strings
+string result = $"{first} {second}!";
+  
+Mais legível e direta, produz o mesmo resultado: Hello World!
+
+
+
+Interpolação com formatação monetária:
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})"); 
+
+Saída: Price: R$ 123,45 (Save R$ 50,00)
+// O formato {price:C} formata o valor como moeda, usando a cultura atual do sistema.
+// O formato {discount:C} também formata o valor como moeda, usando a cultura atual do sistema.
+// A interpolação de strings é uma maneira mais legível e concisa de formatar strings
+
+ */
+
+/*
+ Formatação de números em C#
+
+ Ao lidar com valores numéricos, é comum formatá-los para facilitar a leitura,
+ utilizando separadores de milhar e definindo a quantidade de casas decimais.
+
+ O especificador "N" serve para formatar números com separadores e duas casas decimais por padrão.
+
+ Exemplo:
+ decimal measurement = 123456.78912m;
+ Console.WriteLine($"Measurement: {measurement:N} units");
+ // Saída com cultura en-US: "Measurement: 123,456.79 units"
+
+ Para ajustar a precisão, adicione um número ao especificador:
+ Console.WriteLine($"Measurement: {measurement:N4} units");
+ // Saída: "Measurement: 123,456.7891 units"
+
+ A exibição pode variar de acordo com a cultura:
+ - en-US → 123,456.79
+ - pt-BR → 123.456,79
+
+ Outros especificadores disponíveis:
+ - "C" para moeda → {valor:C}
+ - "P" para porcentagem → {taxa:P2}
+
+ Essas opções tornam a saída dos dados numéricos mais clara e adequada ao público.
+*/
+
+
+
+
+
+
+/*
 
 Concatenação de valores:
 string valor1 = "10";
