@@ -2023,3 +2023,49 @@ Saída:
  ----Pad this
  Pad this----
 */
+
+
+/*
+ Formatação com campos fixos em C#
+
+ Este exemplo demonstra como criar uma linha de saída formatada com espaços
+ reservados fixos para cada informação: ID de pagamento, nome do favorecido
+ e valor do pagamento.
+
+ A função PadRight() é usada para garantir que os dados ocupem exatamente
+ o número de caracteres especificado, alinhando o conteúdo à esquerda.
+ Já PadLeft() alinha o conteúdo à direita dentro do campo.
+
+ Exemplo:
+ string paymentId = "769C";
+ string payeeName = "Mr. Stephen Ortega";
+ string paymentAmount = "$5,000.00";
+
+ var formattedLine = paymentId.PadRight(6);
+ formattedLine += payeeName.PadRight(24);
+ formattedLine += paymentAmount.PadLeft(10);
+ Console.WriteLine(formattedLine);
+
+ Resultado:
+ "769C  Mr. Stephen Ortega        $5,000.00"
+
+ O operador += concatena strings. Ele é equivalente a escrever:
+ formattedLine = formattedLine + payeeName.PadRight(24);
+
+ Essa abordagem é útil em cenários onde é necessário gerar saídas
+ alinhadas para sistemas legados que exigem dados em posições fixas.
+
+
+ string paymentId = "769C";
+ string payeeName = "Mr. Stephen Ortega";
+ string paymentAmount = "$5,000.00";
+
+ var formattedLine = paymentId.PadRight(6);
+ formattedLine += payeeName.PadRight(24);
+ formattedLine += paymentAmount.PadLeft(10);
+
+ Console.WriteLine(formattedLine);
+
+ Saída:
+ 769C  Mr. Stephen Ortega       $5,000.00
+*/
