@@ -2185,3 +2185,45 @@ int last_h = message.LastIndexOf('h');
 // Exibe a mensagem informando as posições encontradas do caractere 'h'
 Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
 */
+
+
+
+/*
+
+// A variável 'data' contém uma string com dados fixos: ID do cliente, nome, valor da fatura e número de itens.
+// Os primeiros 5 caracteres representam o ID do cliente.
+// Os próximos 20 caracteres representam o nome do cliente.
+// Os próximos 6 representam o valor da fatura.
+// Os últimos 3 representam a quantidade de itens na fatura.
+
+string data = "12345John Smith          5000  3  ";
+
+// O método Remove() é usado para remover os 20 caracteres correspondentes ao nome do cliente.
+// Começa na posição 5 (após o ID) e remove 20 caracteres.
+string updatedData = data.Remove(5, 20);
+
+// Exibe a string atualizada, agora sem o nome do cliente.
+Console.WriteLine(updatedData);
+
+Saída: 
+123455000  3
+
+
+
+
+// A string 'message' contém dados com traços que precisam ser limpos ou substituídos.
+string message = "This--is--ex-amp-le--da-ta";
+
+// O método Replace() é usado para substituir todos os pares de traços '--' por um espaço.
+message = message.Replace("--", " ");
+
+// Em seguida, o método Replace() é chamado novamente para remover todos os traços restantes '-' da string.
+message = message.Replace("-", "");
+
+// Exibe a string resultante após as substituições.
+Console.WriteLine(message);
+
+Saída: 
+This is example data
+
+*/
