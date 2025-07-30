@@ -2339,3 +2339,35 @@ dotnet add package Humanizer - Adiciona a dependência Humanizer na versão mais
 dotnet add package Humanizer --prerelease - Adiciona a dependência Humanizer, incluindo versões pré-lançamento.
 
 */
+
+
+/*
+
+// Este bloco resume o uso do depurador .NET no Visual Studio Code.
+// Inicialmente, ao abrir um arquivo C#, o Visual Studio Code sugere instalar a extensão C#.
+// Após instalar, solicita adicionar ativos ao projeto para compilar e depurar.
+
+// Os pontos de interrupção são definidos clicando à esquerda do número da linha desejada.
+// É possível usar pontos de interrupção condicionais, que pausam a execução somente se uma condição for atendida.
+
+// Ao iniciar a depuração, o Visual Studio Code exibe painéis úteis:
+// - Painel de variáveis: mostra variáveis locais, globais e de fechamento, organizadas por escopo. 
+//   Permite inspecionar e alterar valores de variáveis em tempo real.
+// - Painel de monitoramento: permite acompanhar o valor de variáveis ou expressões durante a execução.
+// - Pilha de chamadas: registra as funções chamadas em ordem, útil para localizar a origem de exceções.
+// - Painel de pontos de interrupção: lista todos os pontos definidos, podendo ativar, desativar ou configurar interrupção por exceção.
+
+// Os controles de execução incluem:
+// - Continuar/Pausar: retoma ou interrompe a execução.
+// - Passar por cima: executa a próxima instrução sem entrar em funções.
+// - Entrar: executa a próxima instrução e entra em funções.
+// - Sair: continua até sair da função atual.
+// - Reiniciar: reinicia a execução do programa.
+// - Parar: encerra a depuração.
+
+// O console de depuração permite avaliar expressões e visualizar logs.
+// Para aplicativos que requerem entrada de terminal, recomenda-se configurar o launch.json com "console": "integratedTerminal".
+
+// Este ambiente permite analisar o estado do programa, identificar e corrigir bugs com precisão durante o desenvolvimento.
+
+*/
