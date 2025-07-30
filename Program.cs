@@ -2475,3 +2475,124 @@ return n == 0 ? n1 : n2;
 
 
 */
+
+
+
+/*
+
+// Este bloco documenta o uso da classe Directory do namespace System.IO para trabalhar com o sistema de arquivos no .NET.
+// O cenário simula uma estrutura onde lojas enviam arquivos com dados de vendas para uma pasta central chamada "stores".
+
+// Para utilizar os recursos, inclua no início do arquivo:
+using System.IO;
+
+// A classe Directory contém métodos estáticos úteis para criar, mover e listar diretórios e arquivos.
+// Abaixo estão os principais métodos demonstrados:
+
+// 1. Listar os diretórios de nível superior dentro da pasta "stores":
+IEnumerable<string> listOfDirectories = Directory.EnumerateDirectories("stores");
+foreach (var dir in listOfDirectories)
+{
+    Console.WriteLine(dir);
+}
+// Exemplo de saída:
+// stores/201
+// stores/202
+
+// 2. Listar todos os arquivos diretamente contidos na pasta "stores":
+IEnumerable<string> files = Directory.EnumerateFiles("stores");
+foreach (var file in files)
+{
+    Console.WriteLine(file);
+}
+// Exemplo de saída:
+// stores/totals.txt
+// stores/sales.json
+
+// 3. Listar todos os arquivos .txt na pasta "stores" incluindo subpastas:
+IEnumerable<string> allFilesInAllFolders = Directory.EnumerateFiles("stores", "*.txt", SearchOption.AllDirectories);
+foreach (var file in allFilesInAllFolders)
+{
+    Console.WriteLine(file);
+}
+// Exemplo de saída:
+// stores/totals.txt
+// stores/201/inventory.txt
+
+// Essas funções permitem criar um processo automatizado de leitura de dados,
+// útil para sistemas que precisam buscar arquivos distribuídos em múltiplas pastas.
+// No exercício seguinte, o objetivo será localizar todos os arquivos "sales.json" dinamicamente.
+
+
+
+
+// Este bloco demonstra como trabalhar com diretórios e caminhos no .NET usando os namespaces System.IO e System.Environment.
+
+// Para obter o diretório atual em que o programa está sendo executado:
+Console.WriteLine(Directory.GetCurrentDirectory());
+// Exemplo de saída: "stores\\201" se o programa for executado da pasta "201" dentro da estrutura de diretórios.
+
+// Cada sistema operacional possui diretórios especiais, como "Meus Documentos" no Windows ou "HOME" no Linux.
+// A enumeração Environment.SpecialFolder permite acessar esses diretórios de forma segura e compatível com múltiplas plataformas:
+string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+// A classe Path oferece funcionalidades específicas para manipulação de caminhos.
+// Sistemas diferentes usam caracteres diferentes para separar diretórios:
+// - Windows: barra invertida (\\)
+// - macOS/Linux: barra normal (/)
+// O campo Path.DirectorySeparatorChar retorna o separador correto conforme o sistema:
+Console.WriteLine($"stores{Path.DirectorySeparatorChar}201");
+// Saída será "stores\\201" no Windows ou "stores/201" no macOS/Linux.
+
+// Para construir caminhos de forma segura, utilize Path.Combine em vez de concatenar strings:
+Console.WriteLine(Path.Combine("stores", "201")); // Exemplo: "stores/201"
+
+// Importante: a classe Path lida apenas com o conceito de caminhos, não verifica se os arquivos ou pastas realmente existem.
+
+// Também é possível extrair informações de caminhos e arquivos:
+// Obter extensão de um arquivo:
+Console.WriteLine(Path.GetExtension("sales.json")); // Saída: ".json"
+
+// Para obter dados detalhados de um arquivo, como nome completo, diretório, extensão e data de criação:
+string fileName = $"stores{Path.DirectorySeparatorChar}201{Path.DirectorySeparatorChar}sales{Path.DirectorySeparatorChar}sales.json";
+FileInfo info = new FileInfo(fileName);
+
+Console.WriteLine(
+    $"Full Name: {info.FullName}{Environment.NewLine}" +
+    $"Directory: {info.Directory}{Environment.NewLine}" +
+    $"Extension: {info.Extension}{Environment.NewLine}" +
+    $"Create Date: {info.CreationTime}"
+);
+
+// As classes Path, FileInfo e DirectoryInfo oferecem diversas propriedades e métodos úteis
+// para análise e manipulação de arquivos e diretórios em qualquer sistema operacional suportado pelo .NET.
+
+
+
+
+// Obtém o diretório atual em que o programa está sendo executado
+var currentDirectory = Directory.GetCurrentDirectory();
+
+// Combina o caminho para acessar a pasta "stores"
+var storesDirectory = Path.Combine(currentDirectory, "stores");
+
+// Combina o caminho para criar uma nova pasta chamada "salesTotalDir"
+var salesTotalDir = Path.Combine(currentDirectory, "salesTotalDir");
+
+// Cria o diretório "salesTotalDir". Se ele já existir, nada será alterado.
+// Caso não exista, todos os diretórios do caminho serão criados automaticamente.
+Directory.CreateDirectory(salesTotalDir);
+
+// Executa uma função que busca todos os arquivos dentro de "storesDirectory"
+// Essa função será usada futuramente para ler os arquivos de vendas individuais
+var salesFiles = FindFiles(storesDirectory);
+
+// Cria um novo arquivo chamado "totals.txt" dentro da pasta "salesTotalDir"
+// Neste momento, o arquivo será criado com conteúdo vazio (String.Empty)
+// Se já existir, será sobrescrito com o novo conteúdo
+File.WriteAllText(Path.Combine(salesTotalDir, "totals.txt"), String.Empty);
+
+
+
+
+*/
