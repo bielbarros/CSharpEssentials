@@ -2278,6 +2278,7 @@ Output: <h2>Widgets &reg;</h2><span>5000</span>
 
 SOLUÇÃO:
 
+
 const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
 string quantity = "";
@@ -2312,5 +2313,29 @@ output = "Output: " + output.Remove(divCloseStart, closeDiv.Length);
 
 Console.WriteLine(quantity);
 Console.WriteLine(output);
+
+*/
+
+
+/*
+
+Dependências:
+
+Dependências são bibliotecas ou pacotes que um projeto precisa para funcionar corretamente. 
+Elas podem ser gerenciadas por meio de ferramentas como NuGet, que facilitam a instalação, atualização e remoção de pacotes.
+
+Comandos:
+
+dotnet add package [nome-do-pacote] - Adiciona uma dependência ao projeto.
+dotnet remove package [nome-do-pacote] - Remove uma dependência do projeto.
+dotnet list package - Lista todas as dependências do projeto.
+dotnet restore - Restaura as dependências do projeto, baixando os pacotes necessários.
+dotnet list package --outdated - Lista as dependências desatualizadas do projeto, podendo atualizá-las posteriormente.
+dotnet update package - Atualiza todas as dependências do projeto para a versão mais recente.
+dotnet update package [nome-do-pacote] - Atualiza uma dependência específica para a versão mais recente.
+dotnet list package --outdated --include-prerelease - Lista as dependências desatualizadas, incluindo versões pré-lançamento.
+dotnet add package Humanizer --version 2.11.10 - Adiciona a dependência Humanizer na versão 2.11.10 ao projeto.
+dotnet add package Humanizer - Adiciona a dependência Humanizer na versão mais recente
+dotnet add package Humanizer --prerelease - Adiciona a dependência Humanizer, incluindo versões pré-lançamento.
 
 */
