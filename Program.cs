@@ -2370,4 +2370,108 @@ dotnet add package Humanizer --prerelease - Adiciona a dependência Humanizer, i
 
 // Este ambiente permite analisar o estado do programa, identificar e corrigir bugs com precisão durante o desenvolvimento.
 
+
+
+
+// Ao escolher uma API para saída de mensagens e rastreamento no .NET, é importante entender suas diferenças e aplicações.
+// Existem três principais opções: System.Console, System.Diagnostics.Trace e System.Diagnostics.Debug.
+
+// Console.WriteLine grava mensagens diretamente no console. Está sempre ativo e é útil para exibir informações visíveis ao usuário.
+// É frequentemente usado para depuração temporária ou testes rápidos, mas não costuma ser incluído em versões finais do código.
+
+// Trace.WriteLine escreve mensagens em ouvintes anexados, como o DefaultTraceListener. Só funciona se a constante TRACE estiver definida.
+// Essa API é indicada para criar logs em builds que não estejam em modo de depuração, sendo útil para produção.
+
+// Debug.WriteLine grava mensagens em um depurador anexado e só funciona se a constante DEBUG estiver definida.
+// Essa abordagem é recomendada para uso interno durante o desenvolvimento, pois não afeta builds de produção.
+
+// Exemplo de uso:
+// Console.WriteLine("Mensagem visível ao usuário final.");
+// Trace.WriteLine("Mensagem de rastreamento para diagnósticos.");
+// Debug.WriteLine("Mensagem exclusiva para desenvolvedores em modo DEBUG.");
+
+// Estratégias de saída:
+// - Use WriteLine para mensagens completas e independentes.
+// - Use Write quando quiser construir uma mensagem combinada ao longo de múltiplas chamadas.
+
+// Exemplo de combinação de mensagens:
+// Debug.Write("Debug - ");
+// Debug.WriteLine("Esta é uma linha completa.");
+// Debug.WriteLine("Esta é outra linha completa.");
+
+// Resultado esperado:
+// Debug - Esta é uma linha completa.
+// Esta é outra linha completa.
+
+// Para uma estratégia eficaz de rastreamento, mantenha os logs organizados e relevantes.
+// Evite mensagens excessivamente fragmentadas ou agrupamentos confusos que dificultem a análise posterior.
+
+
+
+// O .NET oferece uma maneira eficiente de registrar mensagens de depuração e rastreamento usando as classes Debug e Trace.
+// Ambas fazem parte do namespace System.Diagnostics e são usadas para registrar informações durante o desenvolvimento e dep
+// Com as constantes definidas, é possível fazer rastreamentos condicionais com WriteIf e WriteLineIf.
+// Isso ajuda a registrar mensagens somente quando uma condição específica for verdadeira.
+
+// Forma tradicional
+if (count == 0)
+{
+    Debug.WriteLine("The count is 0 and this may cause an exception.");
+}
+
+// Forma compacta com WriteLineIf
+Debug.WriteLineIf(count == 0, "The count is 0 and this may cause an exception.");
+
+// Também funciona com Trace:
+bool errorFlag = false;
+Trace.WriteIf(errorFlag, "Error in AppendData procedure.");
+Debug.WriteIf(errorFlag, "Transaction abandoned.");
+Trace.Write("Invalid value for data request");
+
+// Para ambientes sem depurador anexado, é preciso configurar ouvintes de rastreamento, como dotnet-trace.
+// Essas instruções oferecem uma forma leve e controlada de diagnosticar o comportamento do aplicativo em tempo de execução.
+
+
+
+
+// Este bloco comenta como registrar diagnósticos de depuração usando System.Diagnostics.
+// Para isso, adicione no início do arquivo Program.cs:
+using System.Diagnostics;
+
+// A função Debug.WriteLine permite registrar mensagens úteis no console de depuração.
+// Exemplo de aplicação no método Fibonacci:
+Debug.WriteLine($"Entering {nameof(Fibonacci)} method");
+Debug.WriteLine($"We are looking for the {n}th number");
+
+// Para registrar informações condicionais, pode-se utilizar Debug.WriteLineIf:
+// No loop de cálculo da sequência de Fibonacci, registre quando o resultado for igual a 1:
+for (int i = 2; i <= n; i++)
+{
+    sum = n1 + n2;
+    n1 = n2;
+    n2 = sum;
+    Debug.WriteLineIf(sum == 1, $"sum is 1, n1 is {n1}, n2 is {n2}");
+}
+
+// Resultado esperado durante a execução sob depuração:
+// Entering Fibonacci method
+// We are looking for the 5th number
+// sum is 1, n1 is 1, n2 is 1
+
+// Verificações de lógica podem ser realizadas com Debug.Assert.
+// Essa instrução interrompe a execução se a condição for falsa.
+// Exemplo: certificar-se de que n2 seja igual a 5 antes de retornar.
+Debug.Assert(n2 == 5, "The return value is not 5 and it should be.");
+return n == 0 ? n1 : n2;
+
+// Ao depurar, uma falha de asserção interrompe o aplicativo e exibe detalhes no console.
+// A asserção só será executada em builds com a constante DEBUG definida.
+
+// Para simular esse comportamento fora da depuração:
+// Execute o programa com `dotnet run` e observe o encerramento após a asserção falhar.
+
+// Em contrapartida, ao executar com configuração de Release (`dotnet run --configuration Release`),
+// o programa ignora as instruções Debug e segue até sua conclusão normalmente.
+
+
 */
