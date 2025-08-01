@@ -2964,3 +2964,71 @@ logger.LogCritical("Mensagem crítica");
 
 
 */
+
+
+/*
+// Razor Pages no ASP.NET Core
+
+// Razor Pages é um modelo de programação centrado em páginas e servidor
+// Ideal para criar interfaces web dinâmicas com HTML, CSS e C#
+
+// Benefícios:
+// - Combina marcação HTML com lógica C# usando sintaxe Razor
+// - Organização por recurso: cada página tem sua própria classe PageModel
+// - Facilita manutenção e separação de responsabilidades
+// - Permite gerar conteúdo dinâmico no servidor em tempo de execução
+
+// A classe PageModel encapsula dados e lógica da página
+// Exemplo: Index.cshtml tem sua lógica em IndexModel.cs
+
+// Use Razor Pages quando:
+// - Deseja uma abordagem centrada na página
+// - Precisa gerar UI dinâmica
+// - Quer reduzir duplicação com exibições parciais
+
+// Razor Pages e MVC podem coexistir no mesmo projeto ASP.NET Core
+// MVC é mais indicado para aplicações com separação clara entre modelo, visualização e controle
+
+// Razor Pages: uso de auxiliares de marca (Tag Helpers) e manipuladores de página (Page Handlers)
+
+// Auxiliares de marca são elementos HTML estendidos com atributos do ASP.NET Core
+// Permitem integrar lógica C# diretamente na marcação HTML de forma mais eficiente
+
+// Exemplos de auxiliares de marca:
+// - <partial name="_ValidationScriptsPartial" />: injeta scripts de validação do lado do cliente
+// - <label asp-for="Foo.Id" />: gera um rótulo vinculado à propriedade Foo.Id do PageModel
+// - <input asp-for="Foo.Id" />: gera um campo de entrada vinculado à propriedade Foo.Id
+// - <div asp-validation-summary="All" />: exibe mensagens de validação do modelo
+
+// Manipuladores de página são métodos definidos na classe PageModel
+// Lidam com requisições HTTP e controlam o fluxo de dados da página
+
+// Manipuladores comuns:
+// - OnGet(): inicializa dados da página em requisições GET
+// - OnPost(): processa envios de formulário via POST
+// - OnPostDelete(int id): lida com exclusão de itens, como pizzas, via POST
+
+// Exemplo de manipulador POST para adicionar uma nova pizza:
+// public IActionResult OnPost()
+// {
+//     if (!ModelState.IsValid || NewPizza == null)
+//         return Page();
+//     _service.AddPizza(NewPizza);
+//     return RedirectToAction("Get");
+// }
+
+// Exemplo de manipulador POST para excluir uma pizza:
+// public IActionResult OnPostDelete(int id)
+// {
+//     _service.DeletePizza(id);
+//     return RedirectToAction("Get");
+// }
+
+// Atributos como asp-page-handler e asp-route-id são usados na marcação HTML
+// para vincular botões e formulários aos manipuladores de página correspondentes
+
+// Razor Pages promove separação de responsabilidades:
+// - A lógica fica na PageModel
+// - A interface e os auxiliares de marca ficam na página .cshtml
+
+*/
