@@ -3208,3 +3208,210 @@ public static string GetAllFacebookUserLikesMessage(IEnumerable<FacebookUser> fa
 }
 
 */
+
+
+
+/*
+
+// Entity Framework Core (EF Core) é uma biblioteca ORM para .NET
+// Permite realizar operações CRUD com objetos C# em vez de SQL direto
+
+// Classe de entidade representa uma tabela no banco de dados
+namespace PizzaStore.Models 
+{
+    public class Pizza
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+    }
+}
+
+// Consultar dados do banco
+var pizzas = await db.Pizzas.ToListAsync();
+
+// Inserir nova pizza
+await db.Pizzas.AddAsync(
+    new Pizza { Id = 1, Name = "Pepperoni", Description = "The classic pepperoni pizza" });
+
+// Excluir pizza por ID
+var pizza = await db.Pizzas.FindAsync(id);
+if (pizza is null)
+{
+    // Handle error
+}
+db.Pizzas.Remove(pizza);
+
+// Atualizar pizza existente
+int id = 1;
+var updatePizza = new Pizza { Name = "Pineapple", Description = "Ummmm?" };
+var pizzaToUpdate = await db.Pizzas.FindAsync(id);
+if (pizzaToUpdate is null)
+{
+    // Handle error
+}
+pizzaToUpdate.Description = updatePizza.Description;
+pizzaToUpdate.Name = updatePizza.Name;
+await db.SaveChangesAsync();
+
+// EF Core também oferece um provedor de banco de dados em memória
+// Ideal para testes e desenvolvimento, mas não recomendado para produção
+
+
+*/
+
+
+
+/*
+
+// Criação do projeto
+// dotnet new web -o PizzaStore -f net8.0
+// cd PizzaStore
+
+// Instalação do pacote Swagger
+// dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+
+// Modelo de dados Pizza
+namespace PizzaStore.Models 
+{
+    public class Pizza
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+    }
+
+    // Contexto do EF Core
+    class PizzaDb : DbContext
+    {
+        public PizzaDb(DbContextOptions options) : base(options) { }
+        public DbSet<Pizza> Pizzas { get; set; } = null!;
+    }
+}
+
+// Configuração do EF Core e Swagger no Program.cs
+using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using PizzaStore.Models;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo {
+        Title = "PizzaStore API",
+        Description = "Making the Pizzas you love",
+        Version = "v1"
+    });
+});
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "PizzaStore API V1");
+    });
+}
+
+// Rotas da API mínima
+
+// Rota raiz
+app.MapGet("/", () => "Hello World!");
+
+// Listar todas as pizzas
+app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
+
+// Adicionar nova pizza
+app.MapPost("/pizza", async (PizzaDb db, Pizza pizza) =>
+{
+    await db.Pizzas.AddAsync(pizza);
+    await db.SaveChangesAsync();
+    return Results.Created($"/pizza/{pizza.Id}", pizza);
+});
+
+// Buscar pizza por ID
+app.MapGet("/pizza/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id));
+
+// Atualizar pizza existente
+app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatepizza, int id) =>
+{
+    var pizza = await db.Pizzas.FindAsync(id);
+    if (pizza is null) return Results.NotFound();
+    pizza.Name = updatepizza.Name;
+    pizza.Description = updatepizza.Description;
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
+
+// Excluir pizza
+app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) =>
+{
+    var pizza = await db.Pizzas.FindAsync(id);
+    if (pizza is null) return Results.NotFound();
+    db.Pizzas.Remove(pizza);
+    await db.SaveChangesAsync();
+    return Results.Ok();
+});
+
+app.Run();
+
+// Para testar:
+// - dotnet run
+// - Acessar https://localhost:{PORT}/swagger
+// - Usar interface Swagger para testar GET, POST, PUT, DELETE
+
+
+*/
+
+
+/*
+// ===============================================
+// CONFIGURAÇÃO DO BANCO DE DADOS SQLITE COM EF CORE
+// ===============================================
+
+// 1️⃣ Instalar pacotes necessários via terminal:
+// - Provedor SQLite para EF Core
+// dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0
+
+// - Ferramentas de migração EF Core
+// dotnet tool install --global dotnet-ef
+
+// - Pacote de design EF Core (necessário para migrações)
+// dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0
+
+// 2️⃣ Definir a cadeia de conexão no Program.cs
+var connectionString = builder.Configuration.GetConnectionString("Pizzas") 
+    ?? "Data Source=Pizzas.db"; // Se não houver configuração, usa arquivo local Pizzas.db
+
+// 3️⃣ Substituir banco de dados em memória por SQLite
+// Antes:
+// builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+// Agora:
+builder.Services.AddSqlite<PizzaDb>(connectionString);
+
+// 4️⃣ Criar migração inicial para gerar esquema do banco de dados
+// dotnet ef migrations add InitialCreate
+
+// Isso cria a pasta "Migrations" com os arquivos que representam as alterações no banco
+
+// 5️⃣ Aplicar migração para criar o banco de dados físico
+// dotnet ef database update
+
+// Após esse comando, o arquivo Pizzas.db será criado no diretório do projeto
+
+// 6️⃣ Testar a persistência de dados
+// - Executar o app com dotnet run
+// - Usar Swagger UI para adicionar dados
+// - Encerrar com Ctrl+C
+// - Reiniciar o app e verificar se os dados foram mantidos
+
+//  Agora sua API mínima está conectada a um banco de dados relacional persistente usando SQLite!
+
+
+*/
+
