@@ -2917,4 +2917,50 @@ logger.LogCritical("Mensagem crítica");
 
 
 
+// Orquestração de microsserviços com Docker Compose
+
+// A empresa Contoso decidiu agrupar dois serviços (frontend e backend) usando Docker Compose
+// para facilitar a implantação conjunta e o gerenciamento dos microsserviços
+
+// O arquivo docker-compose.yml define os serviços:
+// - frontend: usa a imagem 'store:latest', depende do backend e expõe a porta 32000
+// - backend: usa a imagem 'products:latest' e expõe a porta 32001
+//
+// O frontend define uma variável de ambiente ProductEndpoint para se comunicar com o backend
+
+// Exemplo básico de configuração:
+// version: '3.4'
+// services:
+//   frontend:
+//     image: store:latest
+//     environment:
+//       - ProductEndpoint=http://backend:8080
+//     ports:
+//       - "32000:8080"
+//     depends_on:
+//       - backend
+//   backend:
+//     image: products:latest
+//     ports:
+//       - "32001:8080"
+
+// Alternativamente, se usar Dockerfiles personalizados, é necessário incluir diretivas de build:
+// build:
+//   context: .
+//   dockerfile: ./Store/Dockerfile
+
+// Para compilar as imagens:
+// dotnet publish /p:PublishProfile=DefaultContainer
+
+// Para iniciar os serviços:
+// docker compose up
+
+// Após a execução, os contêineres frontend e backend são iniciados e conectados
+// O frontend pode ser acessado via navegador na porta 32000
+// A página de produtos exibe os dados fornecidos pelo backend
+
+// Docker Compose simplifica a orquestração local de microsserviços,
+// permitindo testes integrados e simulação de ambientes de produção
+
+
 */
