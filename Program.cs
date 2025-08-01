@@ -2592,6 +2592,181 @@ var salesFiles = FindFiles(storesDirectory);
 // Se já existir, será sobrescrito com o novo conteúdo
 File.WriteAllText(Path.Combine(salesTotalDir, "totals.txt"), String.Empty);
 
+*/
+
+
+/*
+
+// Habilitação e configuração do Application Logging no Azure App Service
+
+// O Application Logging permite registrar mensagens de rastreamento do runtime para diagnóstico.
+// É útil em ambientes de pré-produção e para resolução de problemas, mas pode impactar desempenho e armazenamento.
+
+// Logs são salvos no sistema de arquivos ou em armazenamento de blobs, com retenção configurável.
+// O log no sistema de arquivos é desabilitado automaticamente após 12 horas.
+
+// ASP.NET (Windows):
+// Usa System.Diagnostics.Trace com níveis: Error, Warning, Information, Verbose
+Trace.TraceError("Erro");
+Trace.TraceWarning("Aviso");
+Trace.TraceInformation("Informação");
+Trace.WriteLine("Detalhado");
+
+// ASP.NET Core (Windows/Linux):
+// Usa LoggerFactory com níveis de log de 0 (Trace) a 5 (Critical)
+logger.LogCritical("Crítico");
+logger.LogError("Erro");
+logger.LogWarning("Aviso");
+logger.LogInformation("Informação");
+logger.LogDebug("Depuração");
+logger.LogTrace("Rastreamento");
+
+// Node.js (Windows/Linux):
+// Usa console.log e console.error para STDOUT e STDERR
+console.error("Erro");
+console.log("Informação");
+
+// Diferenças entre hosts:
+// Windows tem suporte completo via IIS; Linux depende da imagem Docker e linguagem usada.
+// Logs de blob não são suportados em Linux.
+
+// Alternativas:
+// Application Insights fornece telemetria avançada, útil em produção, mas requer SDK e gera custos.
+// Métricas de uso (CPU, memória, etc.) podem ser configuradas com alertas.
+
+// Habilitação via portal:
+// Ativar log no sistema de arquivos ou blob e definir nível (Erro, Aviso, Informação, Detalhado)
+
+// Habilitação via CLI:
+// Ativar log no sistema de arquivos:
+// az webapp log config --application-logging filesystem --level verbose --name <app-name> --resource-group <resource-group-name>
+
+// Redefinir nível para erro:
+// az webapp log config --application-logging off --name <app-name> --resource-group <resource-group-name>
+
+// Ver status atual:
+// az webapp log show --name <app-name> --resource-group <resource-group-name>
+
+// Streaming de log em tempo real:
+// Permite visualizar logs em tempo real para depuração rápida
+// az webapp log tail --name <app-name> --resource-group <resource-group-name>
+
+// Para múltiplas instâncias, o streaming é limitado; recomenda-se análise offline dos arquivos de log
+
+
+// Exercício: Habilitar e configurar o log do aplicativo no Azure App Service via portal
+
+// Etapa 1: Implantar aplicativo ASP.NET Core de exemplo do GitHub usando a CLI do Azure
+// Define variáveis para nome do app, plano, grupo de recursos, conta de armazenamento e região
+string gitRepo = "https://github.com/MicrosoftDocs/mslearn-capture-application-logs-app-service";
+string appName = $"contosofashions{new Random().Next(10000,99999)}";
+string appPlan = "contosofashionsAppPlan";
+string resourceGroup = "learn-20c91fc6-550d-4c77-99bb-92674ad63c8c";
+string storageAccount = $"sa{appName}";
+string appLocation = "<sua-regiao-local-do-Azure>";
+
+// Cria plano de serviço e aplicativo Web
+// az appservice plan create --name $appPlan --resource-group $resourceGroup --location $appLocation --sku FREE
+// az webapp create --name $appName --resource-group $resourceGroup --plan $appPlan --deployment-source-url $gitRepo
+
+// Cria conta de armazenamento para logs
+// az storage account create -n $storageAccount -g $resourceGroup -l $appLocation --sku Standard_LRS
+
+// Etapa 2: Habilitar logs via portal do Azure
+// Acessa o portal, seleciona o aplicativo Web e verifica se está em execução
+
+// No menu do aplicativo Web:
+// - Acessa "Registros do serviço de aplicativo"
+// - Ativa "Application Logging (Sistema de Arquivos)" com nível "Erro"
+// - Ativa "Application Logging (Blob)" com nível "Detalhado"
+
+// Cria contêiner de armazenamento chamado "appsrvplogs" e seleciona como destino dos logs
+// Define período de retenção como 5 dias
+
+// Salva configurações para aplicar o registro em log
+
+// Resultado: Logs de rastreamento do aplicativo ASP.NET Core são capturados e armazenados
+// - Logs de erro no sistema de arquivos
+// - Logs detalhados no contêiner de blob
+// - Permite diagnóstico e monitoramento do comportamento do aplicativo
+
+
+
+// Streaming de log em tempo real no Azure App Service
+
+// Permite visualizar logs do sistema de arquivos em tempo real via linha de comando
+// Útil para depuração rápida durante o desenvolvimento de aplicativos Web
+
+// Conecta-se a uma única instância do aplicativo; não recomendado para múltiplas instâncias
+// Feedback imediato sobre erros e comportamento do código após alterações e reimplantação
+
+// CLI do Azure para iniciar streaming:
+// az webapp log tail --name <app-name> --resource-group <resource-group-name>
+
+// Para uso com cURL, é necessário configurar credenciais FTPS:
+// az webapp deployment user set --user-name <username> --password <password>
+// curl -u {username} https://{sitename}.scm.azurewebsites.net/api/logstream
+
+// Pressione Ctrl+C para encerrar a sessão de streaming
+
+
+
+
+
+// Exercício: Exibir logs de aplicativo em tempo real usando a CLI do Azure
+
+// Objetivo: Visualizar mensagens de log geradas por um aplicativo ASP.NET diretamente no terminal,
+// sem precisar acessar arquivos de log manualmente
+
+// O aplicativo ASP.NET inclui chamadas de log em diferentes níveis na página inicial:
+logger.LogInformation("Mensagem de informação");
+logger.LogDebug("Mensagem de depuração");
+logger.LogError("Mensagem de erro");
+logger.LogWarning("Mensagem de aviso");
+logger.LogTrace("Mensagem de rastreamento");
+logger.LogCritical("Mensagem crítica");
+
+// Como o nível de log habilitado é "Erro", apenas LogError e LogCritical são exibidos no streaming
+
+// Para iniciar o streaming de log em tempo real via CLI do Azure:
+/// az webapp log tail --resource-group <nome-do-grupo> --name <nome-do-app>
+
+// Após executar o comando, o terminal exibe mensagens de log conforme páginas do app são acessadas:
+// Exemplo: ao navegar pelas páginas "Home", "Sobre" e "Contato", mensagens de erro são exibidas
+
+// Para encerrar a sessão de streaming:
+// Pressione Ctrl+C no terminal
+
+// Observação: se nenhuma mensagem aparecer, reexecute o comando e aguarde a conexão com o serviço
+
+
+
+
+// Recuperação de arquivos de log do aplicativo no Azure App Service
+
+// Logs de aplicativos do Windows são armazenados em d:\Home\LogFiles com subpastas:
+// - Application: mensagens do app
+// - DetailedErrors: erros detalhados do servidor
+// - http: logs do IIS
+// - W3SVC: rastreamento de falhas
+
+// Logs em Blob Storage são organizados por ano/mês/dia/hora em arquivos CSV
+
+// Logs de aplicativos Linux são gerenciados via Docker e acessados por SSH ou Kudu
+
+// Métodos para recuperar logs:
+// CLI do Azure:
+// az webapp log download --log-file <filename>.zip --resource-group <group> --name <app>
+
+// Kudu (SCM):
+// Acessar https://<app>.scm.azurewebsites.net com credenciais de implantação
+// Navegar até LogFiles/Application e baixar os logs como Application.zip
+
+// Portal do Azure:
+// Acessar conta de armazenamento > Navegador de armazenamento
+// Navegar até contêiner de blob > pasta de data > baixar arquivos CSV
+
+// Logs baixados podem ser abertos no Excel ou em editores de texto para análise offline
 
 
 
