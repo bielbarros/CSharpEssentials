@@ -3032,3 +3032,179 @@ logger.LogCritical("Mensagem crítica");
 // - A interface e os auxiliares de marca ficam na página .cshtml
 
 */
+
+
+/*
+
+// LINQ (Language-Integrated Query) no .NET
+
+// LINQ permite escrever consultas diretamente em C# de forma declarativa e expressiva
+// Unifica o acesso a dados de coleções, bancos de dados, XML, JSON e outras fontes
+
+// Sintaxe de consulta:
+// var result = from item in items
+//              where item.IsActive
+//              select item;
+
+// Sintaxe de método (API):
+// var result = items.Where(item => item.IsActive).Select(item => item);
+
+// LINQ é expressivo e preserva a intenção do código
+// Exemplo: converter lista em dicionário
+// var petLookup = pets.ToDictionary(pet => pet.RFID);
+
+// Provedores LINQ incluem:
+// - LINQ to Objects
+// - LINQ to SQL
+// - LINQ to XML
+// - LINQ to JSON (via Json.NET)
+
+// PLINQ (Parallel LINQ) permite execução paralela:
+// var totalLikes = facebookUsers.AsParallel()
+//     .Aggregate(0UL, (acc, user) => acc + user.Likes,
+//                    (acc1, acc2) => acc1 + acc2,
+//                    total => $"Facebook has {total} likes!");
+
+// Operações comuns:
+// - Where: filtra elementos
+// - Select: projeta elementos
+// - Aggregate: reduz uma sequência a um valor
+// - SelectMany: nivela listas aninhadas
+// - Union/Intersect: combina conjuntos com comparadores personalizados
+// - OrderBy/ThenBy: ordena resultados
+
+// LINQ melhora a legibilidade, reduz código repetitivo e facilita o raciocínio sobre dados
+
+
+
+// Sintaxe de consulta no nível do idioma
+var linqExperts = from p in programmers
+                  where p.IsNewToLINQ
+                  select new LINQExpert(p);
+
+// Sintaxe equivalente usando a API IEnumerable<T>
+var linqExperts = programmers.Where(p => p.IsNewToLINQ)
+                             .Select(p => new LINQExpert(p));
+
+// Código imperativo tradicional para converter lista em dicionário
+var petLookup = new Dictionary<int, Pet>();
+foreach (var pet in pets)
+{
+    petLookup.Add(pet.RFID, pet);
+}
+
+// Código equivalente usando LINQ
+var petLookup = pets.ToDictionary(pet => pet.RFID);
+
+// Consulta LINQ para localizar elementos XML com atributo específico
+public static IEnumerable<XElement> FindAllElementsWithAttribute(XElement documentRoot, string elementName,
+                                           string attributeName, string value)
+{
+    return from el in documentRoot.Elements(elementName)
+           where (string)el.Element(attributeName) == value
+           select el;
+}
+
+// Sintaxe da API para filtrar itens
+var filteredItems = myItems.Where(item => item.Foo);
+
+// Sintaxe de consulta equivalente
+var filteredItems = from item in myItems
+                    where item.Foo
+                    select item;
+
+// LINQ essencial
+
+// Filtrando uma lista
+var germanShepherds = dogs.Where(dog => dog.Breed == DogBreed.GermanShepherd);
+
+// Usando a sintaxe de consulta
+var queryGermanShepherds = from dog in dogs
+                           where dog.Breed == DogBreed.GermanShepherd
+                           select dog;
+
+// Mapeando uma lista de tipo A para tipo B
+var cats = dogs.Select(dog => dog.TurnIntoACat());
+
+// Usando a sintaxe de consulta
+var queryCats = from dog in dogs
+                select dog.TurnIntoACat();
+
+// Somando os comprimentos de um conjunto de strings
+int seed = 0;
+int sumOfStrings = strings.Aggregate(seed, (partialSum, nextString) => partialSum + nextString.Length);
+
+// Nivelando uma lista de listas
+var allDogsFromKennels = kennels.SelectMany(kennel => kennel.Dogs);
+
+// Comparador personalizado para união entre conjuntos
+public class DogHairLengthComparer : IEqualityComparer<Dog>
+{
+    public bool Equals(Dog a, Dog b)
+    {
+        if (a == null && b == null)
+        {
+            return true;
+        }
+        else if ((a == null && b != null) ||
+                 (a != null && b == null))
+        {
+            return false;
+        }
+        else
+        {
+            return a.HairLengthType == b.HairLengthType;
+        }
+    }
+
+    public int GetHashCode(Dog d)
+    {
+        // Hashcode padrão é suficiente aqui
+        return d.GetHashCode();
+    }
+}
+
+// Obtendo todos os cães de pelo curto entre dois canis
+var allShortHairedDogs = kennel1.Dogs.Union(kennel2.Dogs, new DogHairLengthComparer());
+
+// Interseção entre dois conjuntos
+var volunteers = humaneSociety1.Volunteers.Intersect(humaneSociety2.Volunteers,
+                                                     new VolunteerTimeComparer());
+
+// Ordenação por pedágio e tempo estimado
+var results = DirectionsProcessor.GetDirections(start, end)
+              .OrderBy(direction => direction.HasNoTolls)
+              .ThenBy(direction => direction.EstimatedTime);
+
+// Comparação de propriedades públicas de instâncias
+public static bool PublicInstancePropertiesEqual<T>(this T self, T to, params string[] ignore) where T : class
+{
+    if (self == null || to == null)
+    {
+        return self == to;
+    }
+
+    var unequalProperties = from property in typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                            where !ignore.Contains(property.Name)
+                            let selfValue = property.GetValue(self, null)
+                            let toValue = property.GetValue(to, null)
+                            where !Equals(selfValue, toValue)
+                            select property;
+
+    return !unequalProperties.Any();
+}
+
+// PLINQ - execução paralela de expressão LINQ
+public static string GetAllFacebookUserLikesMessage(IEnumerable<FacebookUser> facebookUsers)
+{
+    var seed = default(UInt64);
+
+    Func<UInt64, UInt64, UInt64> threadAccumulator = (t1, t2) => t1 + t2;
+    Func<UInt64, UInt64, UInt64> threadResultAccumulator = (t1, t2) => t1 + t2;
+    Func<UInt64, string> resultSelector = total => $"Facebook has {total} likes!";
+
+    return facebookUsers.AsParallel()
+                        .Aggregate(seed, threadAccumulator, threadResultAccumulator, resultSelector);
+}
+
+*/
