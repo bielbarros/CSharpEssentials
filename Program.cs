@@ -35,7 +35,7 @@ string nome = "João"; // Declaração de variável de texto
 
 bool ativo = true; // Declaração de variável booleana
 
-double preco = 19.99f; // Declaração de variável de ponto flutuante usa-se a letra f
+double preco = 19.99d; // Declaração de variável de ponto flutuante do tipo double.
 
 char letra = 'A'; // Declaração de variável de caractere sempre com aspas simples
 
@@ -49,7 +49,7 @@ float -> float peso = 70.5f; // Declaração de variável de ponto flutuante usa
 
 double -> double preco = 19.99d; // Declaração de variável de ponto flutuante usa-se a letra d
 
-decimal -> decimal valor = 19.99m; // Declaração de variável decimal usa-se a letra m
+decimal -> decimal valor = 19.99m; // Declaração de variável decimal usa-se a letra m, pois trata valores monetários com precisão maior
 
 Cada tipo dá suporte a diferentes graus de precisão.
 Float Type    Precision
@@ -73,6 +73,7 @@ Exemplo de tipos de referência:
 - Delegates
 - Strings (embora sejam imutáveis, são tipos de referência)
 
+
 int[] ref_A= new int[1];
 ref_A[0] = 2;
 int[] ref_B = ref_A;
@@ -83,9 +84,22 @@ Console.WriteLine($"ref_A[0]: {ref_A[0]}");
 Console.WriteLine($"ref_B[0]: {ref_B[0]}");
 
 
+Saída: 
+
+--Reference Types--
+ref_A[0]: 5
+ref_B[0]: 5
+
+*/
 
 
 /*
+Tipos de dados primitivos:
+
+Tipos de dados integrais assinados são aqueles que podem armazenar números inteiros, tanto positivos quanto negativos.
+Tipos de dados integrais não assinados são aqueles que podem armazenar apenas números inteiros positivos.
+
+
 Console.WriteLine("Tipos integrais assinados:");
 
 Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
@@ -149,14 +163,15 @@ idades.Add("João", 25); // Adiciona a chave "João" com valor 25
 idades.Add("Maria", 30); // Adiciona a chave "Maria" com valor 30
 
 // Declaração de tupla com dois elementos: string e inteiro
-Tuple<string, int> pessoa = new Tuple<string, int>("Ana", 28); //
+Tuple<string, int> pessoa = new Tuple<string, int>("Ana", 28);
+
 // Declaração de array de inteiros com tamanho fixo
 int[] numerosArray = new int[5]; // Declaração de array de inteiros
 numerosArray[0] = 10; // Atribui o valor 10 ao primeiro elemento do array
 numerosArray[1] = 20; // Atribui o valor 20 ao segundo elemento do array
 
 // Declaração de lista de strings com inicialização direta
-List<string> nomes = new List<string> { "Carlos", "Fernanda", "Lucas" }; // Declaração de lista de strings com inicialização direta
+List<string> nomes = new List<string> { "Carlos", "Fernanda", "Lucas" };
 
 // Adiciona mais elementos à lista
 nomes.Add("Ana"); // Adiciona "Ana" à lista
@@ -189,9 +204,12 @@ const bool ativo = true; // Declaração de constante booleana
 
 /*
 Regras de nomenclatura:
-- Nomes de variáveis devem ser descritivos e começar com letra minúscula.
+
+- Nomes de variáveis devem ser descritivos e começar com letra minúscula e usar camelCase:
+    idade; nomeCompleto; bool ativo; string caminhoArquivo;
+
 - Nomes de classes devem começar com letra maiúscula e usar PascalCase: 
-    Pessoa, Curso, Estacionamento.
+    Pessoa, Curso, Estacionamento, Produto, Cliente.
 
 - Nomes de propriedades devem começar com letra maiúscula e usar PascalCase:
     Idade, CPF, Nome, Sobrenome.
@@ -308,6 +326,11 @@ Operadores de comparação:
 string pangram = "The quick brown fox jumps over the lazy dog.";
 Console.WriteLine(pangram.Contains("fox"));
 Console.WriteLine(pangram.Contains("cow"));
+
+Saída:
+
+True
+False
 */
 
 
@@ -630,6 +653,72 @@ int flip = coin.Next(0, 2);
 Console.WriteLine((flip == 0) ? "heads" : "tails");
 
 */
+
+
+/*
+Tratando exceções
+
+Tratar exceções é uma prática importante para garantir que seu programa lide com erros de forma controlada e não falhe inesperadamente.
+É comum usar blocos try-catch-finally para capturar e tratar exceções.
+
+try: É a parte do código onde você coloca o código que pode gerar uma exceção.
+catch: É onde você trata a exceção, ou seja, define o que fazer quando uma exceção ocorre.
+finally: É um bloco opcional que sempre será executado, independentemente de uma exceção ter ocorrido ou não. É útil para liberar recursos ou executar código de limpeza.
+
+
+try
+{
+    // Código que pode gerar uma exceção
+}
+catch (Exception ex)
+{
+    // Tratamento da exceção
+}
+finally
+{
+    // Código que será executado sempre, independentemente de ocorrer uma exceção ou não
+}
+
+
+
+Segundo exemplo:
+
+try
+{
+    string[] linhas = File.ReadAllLines ("Arquivos/arquivo_Leitura.txt");
+    foreach (string linha in linhas)
+        Console.WriteLine(linha);
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Ocorreu uma exceção genérica: {ex.Message}");
+}
+catch (FileNotFoundException ex)
+{
+    Console.WriteLine($"Ocorreu uma exceção de arquivo não encontrado: {ex.Message}");
+}
+finally
+{
+    Console.WriteLine("Bloco finally executado.");
+}
+
+Tipos de exceções comuns:
+- FileNotFoundException: Ocorre quando um arquivo não é encontrado.
+- IOException: Ocorre durante operações de entrada/saída, como leitura ou gravação de arquivos.
+- FormatException: Ocorre quando uma string não está no formato esperado para conversão.
+- DivideByZeroException: Ocorre quando há uma tentativa de divisão por zero.
+- NullReferenceException: Ocorre quando há uma tentativa de acessar um membro de um objeto nulo.
+- ArgumentException: Ocorre quando um argumento inválido é passado para um método.
+- OutOfMemoryException: Ocorre quando o sistema fica sem memória disponível.
+- StackOverflowException: Ocorre quando há uma recursão infinita ou estouro de pilha.
+- InvalidOperationException: Ocorre quando uma operação inválida é realizada em um objeto.
+- NotImplementedException: Ocorre quando um método ou operação não foi implementado.
+- TimeoutException: Ocorre quando uma operação excede o tempo limite definido.
+- UnauthorizedAccessException: Ocorre quando há uma tentativa de acessar um recurso sem permissão adequada.
+- SecurityException: Ocorre quando há uma violação de segurança.
+- NotSupportedException: Ocorre quando uma operação não é suportada.
+*/
+
 
 
 /*
