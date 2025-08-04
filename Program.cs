@@ -1429,6 +1429,23 @@ else
 {
     Console.WriteLine("Chave 'Laranja' não encontrada no dicionário.");
 }
+
+
+// Alterando o valor de uma chave existente
+if (dicionario.ContainsKey("Banana"))
+{
+    dicionario["Banana"] = 25;
+    Console.WriteLine("Valor da chave 'Banana' alterado com sucesso.");
+}
+
+// Verificando se o dicionário está vazio
+if (dicionario.Count == 0)
+{
+    Console.WriteLine("O dicionário está vazio.");
+}
+
+
+
 */
 
 
