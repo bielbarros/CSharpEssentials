@@ -1206,6 +1206,24 @@ while (true) // Loop infinito, você pode sair com um comando break
 // .cs = arquivo de código-fonte C# que contém definições de classes, métodos e outros elementos do programa. Ele é usado para escrever o código do aplicativo e é compilado pelo compilador C# para gerar o código executável ou a biblioteca de vínculo dinâmico (DLL).
 */
 
+
+/*
+Coleções em C#:
+Coleções são estruturas de dados que permitem armazenar e manipular grupos de objetos. Elas são úteis para organizar e gerenciar dados de forma eficiente. Em C#, existem várias coleções disponíveis, cada uma com suas características e usos específicos.
+
+1. Arrays: Coleções de tamanho fixo que armazenam elementos do mesmo tipo. Os arrays são indexados e permitem acesso rápido aos elementos.
+2. Listas (List<T>): Coleções de tamanho dinâmico que podem crescer e encolher conforme necessário. Oferecem métodos úteis para manipulação de dados.
+3. Dicionários (Dictionary<TKey, TValue>): Armazenam pares chave-valor, com acesso rápido por chave. As chaves devem ser únicas.
+4. Filas (Queue<T>): Seguem o princípio FIFO (First In, First Out). Úteis para processar elementos na ordem de chegada.
+5. Pilhas (Stack<T>): Seguem o princípio LIFO (Last In, First Out). Úteis para tarefas em ordem inversa.
+6. HashSet<T>: Armazena elementos únicos, sem duplicatas. Ideal para verificar existência de itens rapidamente.
+7. SortedSet<T>: Armazena elementos únicos e automaticamente ordenados.
+8. LinkedList<T>: Lista duplamente encadeada que permite inserções e remoções eficientes em qualquer ponto.
+*/
+
+
+
+
 /*
 // Array e listas:
 
@@ -1305,6 +1323,113 @@ else
 
 */
 
+
+
+/*
+Filas (Queue<T>):
+Filas são coleções que seguem o princípio FIFO (First In, First Out), ou seja, o primeiro elemento adicionado é o primeiro a ser removido. Elas são úteis para gerenciar tarefas em ordem de chegada.
+
+Exemplo de uso de uma fila:
+
+Queue<string> fila = new Queue<string>();
+fila.Enqueue("Cliente 1");
+fila.Enqueue("Cliente 2");
+fila.Enqueue("Cliente 3");
+
+foreach (var cliente in fila)
+{
+    Console.WriteLine(cliente);
+}
+
+Console.WriteLine($"Removendo o elemento: {fila.Dequeue()}");
+
+foreach (var cliente in fila)
+{
+    Console.WriteLine(cliente);
+}
+
+*/
+
+
+/*
+Pilhas (Stack<T>):
+Pilhas são coleções que seguem o princípio LIFO (Last In, First Out), ou seja, o último elemento adicionado é o primeiro a ser removido. Elas são úteis para tarefas que exigem reversão de ordem.
+
+Exemplo de uso de uma pilha:
+
+Stack<string> pilha = new Stack<string>();
+pilha.Push("Item 1");
+pilha.Push("Item 2");
+pilha.Push("Item 3");
+
+foreach (var item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine($"Removendo o elemento: {pilha.Pop()}");
+
+foreach (var item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+*/
+
+
+/*
+Dicionários (Dictionary<TKey, TValue>):
+Dicionários são coleções que armazenam pares chave-valor, permitindo acesso rápido aos valores por meio de suas chaves. As chaves devem ser únicas.
+
+Exemplo de uso de um dicionário:
+
+
+Dictionary<string, int> dicionario = new Dictionary<string, int>();
+dicionario.Add("Maçã", 10);
+dicionario.Add("Banana", 20);
+dicionario.Add("Laranja", 30);
+// dicionario.Add("Laranja", 30); Isso dispara uma exceção, pois a chave "Laranja" já existe e dicionários não permitem chaves duplicadas.
+
+Console.WriteLine("Elementos do dicionário:");
+foreach (var item in dicionario)
+{
+    Console.WriteLine($"Chave: {item.Key}, Valor: {item.Value}");
+}
+
+Console.WriteLine("---------------------------");
+
+// Acesso a um valor pelo seu chave
+if (dicionario.TryGetValue("Banana", out int valor))
+{
+    Console.WriteLine($"Valor da chave 'Banana': {valor}");
+}
+else
+{
+    Console.WriteLine("Chave não encontrada.");
+}
+
+
+// Verificando se uma chave existe no dicionário
+if (dicionario.ContainsKey("Maçã"))
+{
+    Console.WriteLine("A chave 'Maçã' existe no dicionário.");
+}
+else
+{
+    Console.WriteLine("A chave 'Maçã' não foi encontrada no dicionário.");
+}
+
+
+// Removendo um elemento do dicionário
+if (dicionario.Remove("Laranja"))
+{
+    Console.WriteLine("Chave 'Laranja' removida com sucesso.");
+}
+else
+{
+    Console.WriteLine("Chave 'Laranja' não encontrada no dicionário.");
+}
+*/
 
 
 /*
