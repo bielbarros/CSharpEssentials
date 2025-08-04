@@ -720,6 +720,28 @@ Tipos de exceções comuns:
 */
 
 
+/*
+Throw new Exception
+Throw new Exception é usado para lançar uma exceção personalizada em C#, permitindo que você crie suas próprias mensagens de erro
+ e controle o fluxo do programa quando uma condição específica é atendida.
+
+// Exemplo de uso do throw new Exception
+try
+{
+    int idade = 15;
+    if (idade < 18)
+    {
+        throw new Exception("Idade inválida");
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Exceção capturada: {ex.StackTrace}"); // StackTrace fornece informações sobre onde a exceção ocorreu
+}
+
+
+
+
 
 /*
 // Operadores aritméticos
