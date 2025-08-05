@@ -1505,6 +1505,163 @@ pessoa.ValidarDados(); // Valida os dados informados
 */
 
 
+/*
+Programação Orientada a Objetos (POO) é um paradigma de programação que organiza o código em objetos,
+que são instâncias de classes. Cada objeto possui propriedades (atributos) e métodos (comportamentos) que definem seu estado e funcionalidade.
+
+Os principais conceitos da POO incluem:
+
+1. Classe: Um molde ou template para criar objetos. Define propriedades e métodos comuns.
+2. Objeto: Uma instância de uma classe. Possui estado (valores das propriedades) e comportamento (métodos).
+3. Herança: Permite que uma classe herde características de outra, promovendo reuso de código.
+4. Polimorfismo: Permite que métodos com o mesmo nome se comportem de maneira diferente em classes diferentes.
+5. Encapsulamento: Restringe o acesso direto a alguns dos componentes de um objeto, protegendo seu estado interno.
+
+A POO é amplamente utilizada em linguagens como C#, Java e Python, pois facilita a organização e manutenção do código, tornando-o mais modular e reutilizável.
+
+Tipos de paradigmas de programação:
+- Programação Procedural: Baseada em procedimentos ou rotinas, onde o foco está na sequência de ações a serem executadas.
+- Programação Funcional: Baseada em funções matemáticas, enfatizando a imutabilidade e evitando efeitos colaterais.
+- Programação Orientada a Objetos: Baseada em objetos que encapsulam estado e comportamento, promovendo reuso e modularidade.
+- Programação Reativa: Foca em fluxos de dados e na propagação de mudanças, permitindo que sistemas respondam a eventos de forma assíncrona e escalável.
+- Programação Lógica: Baseada em regras e lógica formal, onde o foco está na declaração de fatos e regras para inferir novos conhecimentos.
+- Programação Orientada a Eventos: Baseada em eventos, onde o fluxo do programa é determinado por eventos como cliques de mouse ou entradas de teclado.
+
+
+Pilares da programação orientada a objetos (POO):
+
+// Abstração: Processo de modelar objetos do mundo real destacando apenas os aspectos relevantes
+// para o sistema, omitindo detalhes desnecessários. Permite que o desenvolvedor trabalhe em um nível
+// mais alto de complexidade, focando no que realmente importa para o contexto da aplicação.
+
+// Exemplo: A classe "Carro" abstrai os detalhes técnicos do funcionamento interno,
+// como o tipo de injeção ou o sistema de transmissão, e expõe apenas informações e comportamentos relevantes,
+// como a cor, o modelo e as ações de acelerar e frear.
+
+public class Carro
+{
+    public string Cor { get; set; }
+    public string Modelo { get; set; }
+
+    public void Acelerar()
+    {
+        Console.WriteLine("O carro está acelerando.");
+    }
+
+    public void Frear()
+    {
+        Console.WriteLine("O carro está freando.");
+    }
+}
+
+
+// Encapsulamento: Protege o estado interno de um objeto, restringindo o acesso direto
+// aos seus dados. Os atributos sensíveis são mantidos privados e manipulados apenas
+// por métodos públicos (getters e setters), permitindo validações e evitando modificações incorretas.
+
+// Exemplo: A classe "Carro" possui o atributo "motor" encapsulado como privado,
+// e oferece métodos públicos para acessar ou modificar seu valor com validações,
+// garantindo que o motor não seja alterado diretamente por outras partes do código.
+
+public class Carro
+{
+    private string motor = "Motor V6"; // Propriedade privada e encapsulada
+
+    public string Cor { get; set; }
+    public string Modelo { get; set; }
+
+    public void Acelerar()
+    {
+        Console.WriteLine("O carro com " + motor + " está acelerando.");
+    }
+
+    public void Frear()
+    {
+        Console.WriteLine("O carro está freando.");
+    }
+
+    public void SetMotor(string novoMotor)
+    {
+        // Validação simples para evitar motor vazio ou nulo
+        if (!string.IsNullOrWhiteSpace(novoMotor))
+        {
+            motor = novoMotor;
+        }
+    }
+
+    public string GetMotor()
+    {
+        return motor;
+    }
+}
+
+
+// Herança: Permite que uma classe (classe derivada ou subclasse) herde atributos e comportamentos (métodos)
+// de outra classe (classe base ou superclasse). Isso promove o reuso de código, facilita a manutenção
+// e permite a criação de uma estrutura hierárquica entre classes.
+
+// Exemplo: A classe "CarroEsportivo" herda da classe "Carro", ou seja, ela possui todas as propriedades
+// e métodos da classe "Carro" (como Cor, Modelo, Acelerar, Frear), e ainda pode adicionar comportamentos
+// específicos, como "AtivarTurbo".
+
+public class CarroEsportivo : Carro
+{
+    public void AtivarTurbo()
+    {
+        Console.WriteLine("Turbo ativado!");
+    }
+}
+
+
+
+
+// Polimorfismo: Permite que diferentes classes implementem métodos com o mesmo nome,
+// mas com comportamentos distintos. Isso torna o código mais flexível e reutilizável,
+// pois permite tratar objetos de diferentes tipos de forma uniforme.
+
+// Neste exemplo, temos uma classe base "Animal" com um método virtual "EmitirSom".
+// As classes "Cachorro" e "Gato" herdam de "Animal" e implementam esse método de maneira diferente.
+// O mesmo método pode ser chamado em qualquer tipo de animal, mas o comportamento depende da instância.
+
+// Isso é um exemplo de **polimorfismo por sobreposição (override)**.
+
+public class Animal
+{
+    public virtual void EmitirSom()
+    {
+        Console.WriteLine("O animal emite um som.");
+    }
+}
+
+public class Cachorro : Animal
+{
+    public override void EmitirSom()
+    {
+        Console.WriteLine("O cachorro late: Au au!");
+    }
+}
+
+public class Gato : Animal
+{
+    public override void EmitirSom()
+    {
+        Console.WriteLine("O gato mia: Miau!");
+    }
+}
+
+public class Programa
+{
+    public static void Main()
+    {
+        // Mesmo tipo base (Animal), mas instâncias diferentes
+        Animal meuCachorro = new Cachorro();
+        Animal meuGato = new Gato();
+
+        // Polimorfismo em ação: o método chamado é o da classe real do objeto
+        meuCachorro.EmitirSom(); // Saída: O cachorro late: Au au!
+        meuGato.EmitirSom();     // Saída: O gato mia: Miau!
+    }
+}
 
 
 /*
