@@ -1623,6 +1623,13 @@ public class CarroEsportivo : Carro
 // As classes "Cachorro" e "Gato" herdam de "Animal" e implementam esse método de maneira diferente.
 // O mesmo método pode ser chamado em qualquer tipo de animal, mas o comportamento depende da instância.
 
+
+// Existem dois tipos principais de polimorfismo:
+
+// 1. Sobrecarga (Overload)
+// - Mesmo nome de método, mas com parâmetros diferentes.
+// - Não precisa de herança.
+// - Ocorre na mesma classe (em tempo de compilação).
 // Isso é um exemplo de **polimorfismo por sobreposição (override)**.
 
 public class Animal
@@ -1660,6 +1667,38 @@ public class Programa
         // Polimorfismo em ação: o método chamado é o da classe real do objeto
         meuCachorro.EmitirSom(); // Saída: O cachorro late: Au au!
         meuGato.EmitirSom();     // Saída: O gato mia: Miau!
+    }
+}
+
+
+
+// 2. Sobrescrita (Override)
+// - Uma subclasse modifica o comportamento de um método da superclasse.
+// - Requer herança e uso das palavras-chave virtual/override.
+// - Ocorre em tempo de execução.
+
+
+public class Animal
+{
+    public virtual void EmitirSom()
+    {
+        Console.WriteLine("O animal emite um som.");
+    }
+}
+
+public class Gato : Animal
+{
+    public override void EmitirSom()
+    {
+        Console.WriteLine("O gato mia: Miau!");
+    }
+}
+
+public class Cachorro : Animal
+{
+    public override void EmitirSom()
+    {
+        Console.WriteLine("O cachorro late: Au au!");
     }
 }
 
