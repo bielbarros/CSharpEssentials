@@ -2,13 +2,16 @@ namespace Console_projects;
 
 public class ContaCorrente : Conta
 {
-    public ContaCorrente(double saldoInicial) : base(saldoInicial)
+    private decimal taxaJuros;
+
+    public ContaCorrente(decimal taxaJuros)
     {
+        this.taxaJuros = taxaJuros;
     }
 
-    public void AplicarJuros(double taxa)
+    public override void Creditar(decimal valor)
     {
-        double juros = ObterSaldo() * taxa;
-        Depositar(juros);
+        saldo += valor;
+        saldo += saldo * taxaJuros;
     }
 }

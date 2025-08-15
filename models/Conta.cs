@@ -1,31 +1,16 @@
 namespace Console_projects;
 
-public class Conta
+
+
+public abstract class Conta
 {
-    private double Saldo { get; set; }
+    protected decimal saldo;
 
-    public Conta(double saldoInicial)
+    public abstract void Creditar(decimal valor);
+
+    public void ObterSaldo()
     {
-        Saldo = saldoInicial;
+        Console.WriteLine($"Seu saldo é: {saldo}");
     }
 
-    public void Depositar(double valor)
-    {
-        Saldo += valor;
-    }
-
-    public bool Sacar(double valor)
-    {
-        if (valor > Saldo)
-        {
-            return false;
-        }
-        Saldo -= valor;
-        return true;
-    }
-
-    public double ObterSaldo()
-    {
-        return Saldo;
-    }
 }
