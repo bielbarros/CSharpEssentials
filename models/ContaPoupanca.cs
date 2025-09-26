@@ -4,6 +4,11 @@ public class ContaPoupanca : Conta
 {
     private decimal saldoLiquido;
 
+    public ContaPoupanca(int numeroConta) : base(numeroConta)
+    {
+        
+    }
+
     public override void Creditar(decimal valor)
     {
         saldoLiquido += valor;
